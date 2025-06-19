@@ -1,12 +1,12 @@
 <h1>Haber Sitesi Web Uygulaması</h1>
 
 <h2>Açıklama</h2>
-<p>Bu proje, bir derneğin web sitesinde dinamik olarak yönetilebilen Haberler ve Duyurular bölümlerini içerir. Admin paneli üzerinden Haber ve Duyuru ekleme, düzenleme ve silme işlemleri yapılabilir; kullanıcı ekranında ise listelenen Haberler ve Duyurular detaylı bir şekilde görüntülenir.</p>
+<p>Bu proje, bir web sitesinde dinamik olarak yönetilebilen Haberler ve Duyurular bölümlerini içerir. Admin paneli üzerinden Haber ve Duyuru ekleme, düzenleme ve silme işlemleri yapılabilir; kullanıcı ekranında ise listelenen Haberler ve Duyurular detaylı bir şekilde görüntülenir.</p>
 
 <h2>Teknolojiler</h2>
 <ul>
   <li><strong>Backend:</strong> Java, Spring Boot, Hibernate</li>
-  <li><strong>Database:</strong> PostgreSQL</li>
+  <li><strong>Database:</strong> MySQL</li>
   <li><strong>Frontend:</strong> React, Vite, Tailwind CSS</li>
   <li><strong>Gerçek Zamanlı İletişim:</strong> WebSocket (SockJS + STOMP)</li>
 </ul>
@@ -26,7 +26,7 @@
   <li>Java 17 veya üstü</li>
   <li>Maven 3.6+ veya Maven Wrapper (<code>./mvnw</code>)</li>
   <li>Node.js 18+ ve npm 8+ (veya yarn)</li>
-  <li>PostgreSQL veritabanı</li>
+  <li>MYSQL veritabanı</li>
 </ul>
 
 <h2>Kurulum ve Çalıştırma</h2>
@@ -57,5 +57,3 @@ npm run dev
   <li>Kullanıcı arayüzü daha <strong>kullanışlı</strong> ve <strong>erişilebilir</strong> olacak şekilde iyileştirilmeli.</li>
 </ul>
 
-<h2>Lisans</h2>
-<p>Bu proje açık kaynaklıdır. Dilediğiniz gibi kullanabilir ve katkıda bulunabilirsiniz.</p>
