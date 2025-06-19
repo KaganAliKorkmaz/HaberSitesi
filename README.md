@@ -30,6 +30,7 @@
 </ul>
 
 <h2>Kurulum ve Çalıştırma</h2>
+
 # Ortam Ayarları
 
 
