@@ -1,0 +1,17 @@
+{
+  // 1) Tailwind sınıflarını JS/TS içinde autocomplete için
+  "tailwindCSS.includeLanguages": {
+    "javascript": "javascriptreact",
+    "typescript": "typescriptreact"
+  },
+
+  // 2) .css dosyalarını Tailwind dil sunucusuyla açmak için
+  "files.associations": {
+    "*.css": "tailwindcss"
+  },
+
+  // 3) JSX içindeki "className" string’lerinde de autocomplete ve lint i̇çin
+  "editor.quickSuggestions": {
+    "strings": "on"
+  }
+}

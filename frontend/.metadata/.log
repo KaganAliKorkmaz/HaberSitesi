@@ -1,0 +1,887 @@
+!SESSION 2025-06-17 17:26:07.019 -----------------------------------------------
+eclipse.buildId=4.32.0.20240606-1231
+java.version=22.0.2
+java.vendor=Oracle Corporation
+BootLoader constants: OS=macosx, ARCH=aarch64, WS=cocoa, NL=tr_TR
+Framework arguments:  -product org.eclipse.epp.package.java.product -keyring /Users/kaganalikorkmaz/.eclipse_keyring
+Command-line arguments:  -os macosx -ws cocoa -arch aarch64 -product org.eclipse.epp.package.java.product -keyring /Users/kaganalikorkmaz/.eclipse_keyring
+
+!ENTRY org.eclipse.eclemma.core 4 0 2025-06-17 17:26:32.893
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: org.eclipse.eclemma.core [168]
+  Unresolved requirement: Require-Bundle: org.jacoco.report; bundle-version="[0.8.12,0.8.13)"
+    -> Bundle-SymbolicName: org.jacoco.report; bundle-version="0.8.12.202403310830"
+       org.jacoco.report [519]
+         Unresolved requirement: Import-Package: org.jacoco.core.data; version="[0.8.12,0.8.13)"
+           -> Export-Package: org.jacoco.core.data; bundle-symbolic-name="org.jacoco.core"; bundle-version="0.8.12.202403310830"; version="0.8.12"; uses:="org.jacoco.core.internal.data"
+              org.jacoco.core [518]
+                Unresolved requirement: Import-Package: org.objectweb.asm; version="[9.7.0,9.8.0)"
+                  -> Export-Package: org.objectweb.asm; bundle-symbolic-name="org.objectweb.asm"; bundle-version="9.7.1"; version="9.7.1"
+                     org.objectweb.asm [530]
+                       No resolution report for the bundle.                Unresolved requirement: Import-Package: org.objectweb.asm.tree; version="[9.7.0,9.8.0)"
+                  -> Export-Package: org.objectweb.asm.tree; bundle-symbolic-name="org.objectweb.asm.tree"; bundle-version="9.7.1"; version="9.7.1"; uses:="org.objectweb.asm,org.objectweb.asm.signature"
+                     org.objectweb.asm.tree [533]
+                       Unresolved requirement: Import-Package: org.objectweb.asm; version="9.7.1"
+                         -> Export-Package: org.objectweb.asm; bundle-symbolic-name="org.objectweb.asm"; bundle-version="9.7.1"; version="9.7.1"
+                       Unresolved requirement: Import-Package: org.objectweb.asm.signature; version="9.7.1"
+                         -> Export-Package: org.objectweb.asm.signature; bundle-symbolic-name="org.objectweb.asm"; bundle-version="9.7.1"; version="9.7.1"
+         Unresolved requirement: Import-Package: org.jacoco.core; version="[0.8.12,0.8.13)"
+           -> Export-Package: org.jacoco.core; bundle-symbolic-name="org.jacoco.core"; bundle-version="0.8.12.202403310830"; version="0.8.12"
+         Unresolved requirement: Import-Package: org.jacoco.core.runtime; version="[0.8.12,0.8.13)"
+           -> Export-Package: org.jacoco.core.runtime; bundle-symbolic-name="org.jacoco.core"; bundle-version="0.8.12.202403310830"; version="0.8.12"; uses:="org.jacoco.core.data,org.objectweb.asm"
+         Unresolved requirement: Import-Package: org.jacoco.core.analysis; version="[0.8.12,0.8.13)"
+           -> Export-Package: org.jacoco.core.analysis; bundle-symbolic-name="org.jacoco.core"; bundle-version="0.8.12.202403310830"; version="0.8.12"; uses:="org.jacoco.core.data,org.jacoco.core.internal.analysis"
+         Unresolved requirement: Import-Package: org.objectweb.asm; version="[9.7.0,9.8.0)"
+           -> Export-Package: org.objectweb.asm; bundle-symbolic-name="org.objectweb.asm"; bundle-version="9.7.1"; version="9.7.1"
+  Unresolved requirement: Require-Bundle: org.jacoco.core; bundle-version="[0.8.12,0.8.13)"
+    -> Bundle-SymbolicName: org.jacoco.core; bundle-version="0.8.12.202403310830"
+  Unresolved requirement: Require-Bundle: org.jacoco.agent; bundle-version="[0.8.12,0.8.13)"
+    -> Bundle-SymbolicName: org.jacoco.agent; bundle-version="0.8.12.202403310830"
+       org.jacoco.agent [517]
+         No resolution report for the bundle.  Bundle was not resolved because of a uses constraint violation.
+  org.apache.felix.resolver.reason.ReasonException: Uses constraint violation. Unable to resolve resource org.jacoco.core [osgi.identity; type="osgi.bundle"; version:Version="0.8.12.202403310830"; osgi.identity="org.jacoco.core"] because it is exposed to package 'org.objectweb.asm' from resources org.objectweb.asm [osgi.identity; type="osgi.bundle"; version:Version="9.7.1"; osgi.identity="org.objectweb.asm"] and org.objectweb.asm [osgi.identity; type="osgi.bundle"; version:Version="9.8.0"; osgi.identity="org.objectweb.asm"] via two dependency chains.
+
+Chain 1:
+  org.jacoco.core [osgi.identity; type="osgi.bundle"; version:Version="0.8.12.202403310830"; osgi.identity="org.jacoco.core"]
+    import: (&(osgi.wiring.package=org.objectweb.asm)(&(version>=9.7.0)(!(version>=9.8.0))))
+     |
+    export: osgi.wiring.package: org.objectweb.asm
+  org.objectweb.asm [osgi.identity; type="osgi.bundle"; version:Version="9.7.1"; osgi.identity="org.objectweb.asm"]
+
+Chain 2:
+  org.jacoco.core [osgi.identity; type="osgi.bundle"; version:Version="0.8.12.202403310830"; osgi.identity="org.jacoco.core"]
+    import: (&(osgi.wiring.package=org.objectweb.asm.commons)(&(version>=9.7.0)(!(version>=9.8.0))))
+     |
+    export: osgi.wiring.package=org.objectweb.asm.commons; uses:=org.objectweb.asm
+  org.objectweb.asm.commons [osgi.identity; type="osgi.bundle"; version:Version="9.7.1"; osgi.identity="org.objectweb.asm.commons"]
+    import: (&(osgi.wiring.package=org.objectweb.asm)(version>=9.7.1))
+     |
+    export: osgi.wiring.package: org.objectweb.asm
+  org.objectweb.asm [osgi.identity; type="osgi.bundle"; version:Version="9.8.0"; osgi.identity="org.objectweb.asm"]
+	at org.eclipse.osgi.container.Module.start(Module.java:493)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel$2.run(ModuleContainer.java:2074)
+	at org.eclipse.osgi.internal.framework.EquinoxContainerAdaptor$1$1.execute(EquinoxContainerAdaptor.java:143)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:2065)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:2005)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1968)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1884)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:341)
+
+!ENTRY org.eclipse.eclemma.ui 4 0 2025-06-17 17:26:32.896
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: org.eclipse.eclemma.ui [170]
+  Unresolved requirement: Require-Bundle: org.eclipse.eclemma.core
+    -> Bundle-SymbolicName: org.eclipse.eclemma.core; bundle-version="3.1.9.202405260028"; singleton:="true"
+       org.eclipse.eclemma.core [168]
+         Unresolved requirement: Require-Bundle: org.jacoco.report; bundle-version="[0.8.12,0.8.13)"
+           -> Bundle-SymbolicName: org.jacoco.report; bundle-version="0.8.12.202403310830"
+              org.jacoco.report [519]
+                Unresolved requirement: Import-Package: org.jacoco.core.data; version="[0.8.12,0.8.13)"
+                  -> Export-Package: org.jacoco.core.data; bundle-symbolic-name="org.jacoco.core"; bundle-version="0.8.12.202403310830"; version="0.8.12"; uses:="org.jacoco.core.internal.data"
+                     org.jacoco.core [518]
+                       Unresolved requirement: Import-Package: org.objectweb.asm; version="[9.7.0,9.8.0)"
+                         -> Export-Package: org.objectweb.asm; bundle-symbolic-name="org.objectweb.asm"; bundle-version="9.7.1"; version="9.7.1"
+                            org.objectweb.asm [530]
+                              No resolution report for the bundle.                       Unresolved requirement: Import-Package: org.objectweb.asm.tree; version="[9.7.0,9.8.0)"
+                         -> Export-Package: org.objectweb.asm.tree; bundle-symbolic-name="org.objectweb.asm.tree"; bundle-version="9.7.1"; version="9.7.1"; uses:="org.objectweb.asm,org.objectweb.asm.signature"
+                            org.objectweb.asm.tree [533]
+                              Unresolved requirement: Import-Package: org.objectweb.asm; version="9.7.1"
+                                -> Export-Package: org.objectweb.asm; bundle-symbolic-name="org.objectweb.asm"; bundle-version="9.7.1"; version="9.7.1"
+                              Unresolved requirement: Import-Package: org.objectweb.asm.signature; version="9.7.1"
+                                -> Export-Package: org.objectweb.asm.signature; bundle-symbolic-name="org.objectweb.asm"; bundle-version="9.7.1"; version="9.7.1"
+                Unresolved requirement: Import-Package: org.jacoco.core; version="[0.8.12,0.8.13)"
+                  -> Export-Package: org.jacoco.core; bundle-symbolic-name="org.jacoco.core"; bundle-version="0.8.12.202403310830"; version="0.8.12"
+                Unresolved requirement: Import-Package: org.jacoco.core.runtime; version="[0.8.12,0.8.13)"
+                  -> Export-Package: org.jacoco.core.runtime; bundle-symbolic-name="org.jacoco.core"; bundle-version="0.8.12.202403310830"; version="0.8.12"; uses:="org.jacoco.core.data,org.objectweb.asm"
+                Unresolved requirement: Import-Package: org.jacoco.core.analysis; version="[0.8.12,0.8.13)"
+                  -> Export-Package: org.jacoco.core.analysis; bundle-symbolic-name="org.jacoco.core"; bundle-version="0.8.12.202403310830"; version="0.8.12"; uses:="org.jacoco.core.data,org.jacoco.core.internal.analysis"
+                Unresolved requirement: Import-Package: org.objectweb.asm; version="[9.7.0,9.8.0)"
+                  -> Export-Package: org.objectweb.asm; bundle-symbolic-name="org.objectweb.asm"; bundle-version="9.7.1"; version="9.7.1"
+         Unresolved requirement: Require-Bundle: org.jacoco.core; bundle-version="[0.8.12,0.8.13)"
+           -> Bundle-SymbolicName: org.jacoco.core; bundle-version="0.8.12.202403310830"
+         Unresolved requirement: Require-Bundle: org.jacoco.agent; bundle-version="[0.8.12,0.8.13)"
+           -> Bundle-SymbolicName: org.jacoco.agent; bundle-version="0.8.12.202403310830"
+              org.jacoco.agent [517]
+                No resolution report for the bundle.  Unresolved requirement: Require-Bundle: org.jacoco.core; bundle-version="[0.8.12,0.8.13)"
+    -> Bundle-SymbolicName: org.jacoco.core; bundle-version="0.8.12.202403310830"
+  Bundle was not resolved because of a uses constraint violation.
+  org.apache.felix.resolver.reason.ReasonException: Uses constraint violation. Unable to resolve resource org.jacoco.core [osgi.identity; type="osgi.bundle"; version:Version="0.8.12.202403310830"; osgi.identity="org.jacoco.core"] because it is exposed to package 'org.objectweb.asm' from resources org.objectweb.asm [osgi.identity; type="osgi.bundle"; version:Version="9.7.1"; osgi.identity="org.objectweb.asm"] and org.objectweb.asm [osgi.identity; type="osgi.bundle"; version:Version="9.8.0"; osgi.identity="org.objectweb.asm"] via two dependency chains.
+
+Chain 1:
+  org.jacoco.core [osgi.identity; type="osgi.bundle"; version:Version="0.8.12.202403310830"; osgi.identity="org.jacoco.core"]
+    import: (&(osgi.wiring.package=org.objectweb.asm)(&(version>=9.7.0)(!(version>=9.8.0))))
+     |
+    export: osgi.wiring.package: org.objectweb.asm
+  org.objectweb.asm [osgi.identity; type="osgi.bundle"; version:Version="9.7.1"; osgi.identity="org.objectweb.asm"]
+
+Chain 2:
+  org.jacoco.core [osgi.identity; type="osgi.bundle"; version:Version="0.8.12.202403310830"; osgi.identity="org.jacoco.core"]
+    import: (&(osgi.wiring.package=org.objectweb.asm.commons)(&(version>=9.7.0)(!(version>=9.8.0))))
+     |
+    export: osgi.wiring.package=org.objectweb.asm.commons; uses:=org.objectweb.asm
+  org.objectweb.asm.commons [osgi.identity; type="osgi.bundle"; version:Version="9.7.1"; osgi.identity="org.objectweb.asm.commons"]
+    import: (&(osgi.wiring.package=org.objectweb.asm)(version>=9.7.1))
+     |
+    export: osgi.wiring.package: org.objectweb.asm
+  org.objectweb.asm [osgi.identity; type="osgi.bundle"; version:Version="9.8.0"; osgi.identity="org.objectweb.asm"]
+	at org.eclipse.osgi.container.Module.start(Module.java:493)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel$2.run(ModuleContainer.java:2074)
+	at org.eclipse.osgi.internal.framework.EquinoxContainerAdaptor$1$1.execute(EquinoxContainerAdaptor.java:143)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:2065)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:2005)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1968)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1884)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:341)
+
+!ENTRY ch.qos.logback.classic 1 0 2025-06-17 17:26:32.960
+!MESSAGE Activated before the state location was initialized. Retry after the state location is initialized.
+
+!ENTRY org.eclipse.epp.mpc.core 4 0 2025-06-17 17:26:33.078
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: org.eclipse.epp.mpc.core [185]
+  Unresolved requirement: Import-Package: org.apache.hc.client5.http.impl.classic; version="[5.1.0,5.3.0)"
+    -> Export-Package: org.apache.hc.client5.http.impl.classic; bundle-symbolic-name="org.apache.httpcomponents.client5.httpclient5"; bundle-version="5.2.1.v20230802-0806"; version="5.2.1"; uses:="org.apache.hc.client5.http,org.apache.hc.client5.http.auth,org.apache.hc.client5.http.classic,org.apache.hc.client5.http.config,org.apache.hc.client5.http.cookie,org.apache.hc.client5.http.entity,org.apache.hc.client5.http.impl,org.apache.hc.client5.http.io,org.apache.hc.client5.http.protocol,org.apache.hc.client5.http.routing,org.apache.hc.core5.concurrent,org.apache.hc.core5.http,org.apache.hc.core5.http.config,org.apache.hc.core5.http.impl.io,org.apache.hc.core5.http.io,org.apache.hc.core5.http.protocol,org.apache.hc.core5.io,org.apache.hc.core5.pool,org.apache.hc.core5.util"
+       org.apache.httpcomponents.client5.httpclient5 [82]
+         Unresolved requirement: Import-Package: org.brotli.dec; version="[0.1.0,1.0.0)"; resolution:="optional"
+         Unresolved requirement: Import-Package: org.conscrypt; version="[2.5.0,3.0.0)"; resolution:="optional"
+         Unresolved requirement: Import-Package: org.apache.hc.core5.http.io; version="[5.2.0,6.0.0)"
+           -> Export-Package: org.apache.hc.core5.http.io; bundle-symbolic-name="org.apache.httpcomponents.core5.httpcore5"; bundle-version="5.2.3.v20230922-1600"; version="5.2.3"; uses:="org.apache.hc.core5.http,org.apache.hc.core5.http.config,org.apache.hc.core5.http.protocol,org.apache.hc.core5.util"
+              org.apache.httpcomponents.core5.httpcore5 [84]
+                Unresolved requirement: Import-Package: org.conscrypt; resolution:="optional"
+         Unresolved requirement: Import-Package: org.apache.hc.core5.http.message; version="[5.2.0,6.0.0)"
+           -> Export-Package: org.apache.hc.core5.http.message; bundle-symbolic-name="org.apache.httpcomponents.core5.httpcore5"; bundle-version="5.2.3.v20230922-1600"; version="5.2.3"; uses:="org.apache.hc.core5.http,org.apache.hc.core5.net,org.apache.hc.core5.util"
+         Unresolved requirement: Import-Package: org.apache.hc.core5.http; version="[5.2.0,6.0.0)"
+           -> Export-Package: org.apache.hc.core5.http; bundle-symbolic-name="org.apache.httpcomponents.core5.httpcore5"; bundle-version="5.2.3.v20230922-1600"; version="5.2.3"; uses:="javax.net.ssl,org.apache.hc.core5.function,org.apache.hc.core5.http.protocol,org.apache.hc.core5.io,org.apache.hc.core5.net,org.apache.hc.core5.util"
+         Unresolved requirement: Import-Package: org.apache.hc.core5.http.protocol; version="[5.2.0,6.0.0)"
+           -> Export-Package: org.apache.hc.core5.http.protocol; bundle-symbolic-name="org.apache.httpcomponents.core5.httpcore5"; bundle-version="5.2.3.v20230922-1600"; version="5.2.3"; uses:="javax.net.ssl,org.apache.hc.core5.function,org.apache.hc.core5.http"
+         Unresolved requirement: Import-Package: org.apache.hc.core5.net; version="[5.2.0,6.0.0)"
+           -> Export-Package: org.apache.hc.core5.net; bundle-symbolic-name="org.apache.httpcomponents.core5.httpcore5"; bundle-version="5.2.3.v20230922-1600"; version="5.2.3"; uses:="org.apache.hc.core5.http"
+         Unresolved requirement: Import-Package: org.apache.hc.core5.http.support; version="[5.2.0,6.0.0)"
+           -> Export-Package: org.apache.hc.core5.http.support; bundle-symbolic-name="org.apache.httpcomponents.core5.httpcore5"; bundle-version="5.2.3.v20230922-1600"; version="5.2.3"; uses:="org.apache.hc.core5.http,org.apache.hc.core5.http.message,org.apache.hc.core5.net"
+         Unresolved requirement: Import-Package: org.apache.hc.core5.http.config; version="[5.2.0,6.0.0)"
+           -> Export-Package: org.apache.hc.core5.http.config; bundle-symbolic-name="org.apache.httpcomponents.core5.httpcore5"; bundle-version="5.2.3.v20230922-1600"; version="5.2.3"; uses:="org.apache.hc.core5.util"
+         Unresolved requirement: Import-Package: org.apache.hc.core5.util; version="[5.2.0,6.0.0)"
+           -> Export-Package: org.apache.hc.core5.util; bundle-symbolic-name="org.apache.httpcomponents.core5.httpcore5"; bundle-version="5.2.3.v20230922-1600"; version="5.2.3"; uses:="org.apache.hc.core5.http"
+         Unresolved requirement: Import-Package: org.apache.hc.core5.http.impl.io; version="[5.2.0,6.0.0)"
+           -> Export-Package: org.apache.hc.core5.http.impl.io; bundle-symbolic-name="org.apache.httpcomponents.core5.httpcore5"; bundle-version="5.2.3.v20230922-1600"; version="5.2.3"; uses:="javax.net.ssl,org.apache.hc.core5.function,org.apache.hc.core5.http,org.apache.hc.core5.http.config,org.apache.hc.core5.http.impl,org.apache.hc.core5.http.io,org.apache.hc.core5.http.message,org.apache.hc.core5.http.protocol,org.apache.hc.core5.io,org.apache.hc.core5.util"
+         Unresolved requirement: Import-Package: org.apache.hc.core5.http.nio.ssl; version="[5.2.0,6.0.0)"
+           -> Export-Package: org.apache.hc.core5.http.nio.ssl; bundle-symbolic-name="org.apache.httpcomponents.core5.httpcore5"; bundle-version="5.2.3.v20230922-1600"; version="5.2.3"; uses:="javax.net.ssl,org.apache.hc.core5.concurrent,org.apache.hc.core5.http,org.apache.hc.core5.net,org.apache.hc.core5.reactor,org.apache.hc.core5.reactor.ssl,org.apache.hc.core5.util"
+         Unresolved requirement: Import-Package: org.apache.hc.core5.concurrent; version="[5.2.0,6.0.0)"
+           -> Export-Package: org.apache.hc.core5.concurrent; bundle-symbolic-name="org.apache.httpcomponents.core5.httpcore5"; bundle-version="5.2.3.v20230922-1600"; version="5.2.3"
+         Unresolved requirement: Import-Package: org.apache.hc.core5.http.io.entity; version="[5.2.0,6.0.0)"
+           -> Export-Package: org.apache.hc.core5.http.io.entity; bundle-symbolic-name="org.apache.httpcomponents.core5.httpcore5"; bundle-version="5.2.3.v20230922-1600"; version="5.2.3"; uses:="org.apache.hc.core5.function,org.apache.hc.core5.http,org.apache.hc.core5.io"
+         Unresolved requirement: Import-Package: org.apache.hc.core5.http.nio.entity; version="[5.2.0,6.0.0)"
+           -> Export-Package: org.apache.hc.core5.http.nio.entity; bundle-symbolic-name="org.apache.httpcomponents.core5.httpcore5"; bundle-version="5.2.3.v20230922-1600"; version="5.2.3"; uses:="org.apache.hc.core5.concurrent,org.apache.hc.core5.function,org.apache.hc.core5.http,org.apache.hc.core5.http.config,org.apache.hc.core5.http.nio"
+         Unresolved requirement: Import-Package: org.apache.hc.core5.function; version="[5.2.0,6.0.0)"
+           -> Export-Package: org.apache.hc.core5.function; bundle-symbolic-name="org.apache.httpcomponents.core5.httpcore5"; bundle-version="5.2.3.v20230922-1600"; version="5.2.3"
+         Unresolved requirement: Import-Package: org.apache.hc.core5.http.nio.command; version="[5.2.0,6.0.0)"
+           -> Export-Package: org.apache.hc.core5.http.nio.command; bundle-symbolic-name="org.apache.httpcomponents.core5.httpcore5"; bundle-version="5.2.3.v20230922-1600"; version="5.2.3"; uses:="org.apache.hc.core5.concurrent,org.apache.hc.core5.function,org.apache.hc.core5.http.nio,org.apache.hc.core5.http.protocol,org.apache.hc.core5.io,org.apache.hc.core5.reactor"
+         Unresolved requirement: Import-Package: org.apache.hc.core5.http.impl.nio; version="[5.2.0,6.0.0)"
+           -> Export-Package: org.apache.hc.core5.http.impl.nio; bundle-symbolic-name="org.apache.httpcomponents.core5.httpcore5"; bundle-version="5.2.3.v20230922-1600"; version="5.2.3"; uses:="javax.net.ssl,org.apache.hc.core5.http,org.apache.hc.core5.http.config,org.apache.hc.core5.http.impl,org.apache.hc.core5.http.message,org.apache.hc.core5.http.nio,org.apache.hc.core5.http.nio.ssl,org.apache.hc.core5.http.protocol,org.apache.hc.core5.io,org.apache.hc.core5.reactor,org.apache.hc.core5.util"
+         Unresolved requirement: Import-Package: org.apache.hc.core5.http.nio.support; version="[5.2.0,6.0.0)"
+           -> Export-Package: org.apache.hc.core5.http.nio.support; bundle-symbolic-name="org.apache.httpcomponents.core5.httpcore5"; bundle-version="5.2.3.v20230922-1600"; version="5.2.3"; uses:="org.apache.hc.core5.concurrent,org.apache.hc.core5.function,org.apache.hc.core5.http,org.apache.hc.core5.http.nio,org.apache.hc.core5.http.protocol,org.apache.hc.core5.http.support,org.apache.hc.core5.net"
+         Unresolved requirement: Import-Package: org.apache.hc.core5.pool; version="[5.2.0,6.0.0)"
+           -> Export-Package: org.apache.hc.core5.pool; bundle-symbolic-name="org.apache.httpcomponents.core5.httpcore5"; bundle-version="5.2.3.v20230922-1600"; version="5.2.3"; uses:="org.apache.hc.core5.concurrent,org.apache.hc.core5.function,org.apache.hc.core5.http,org.apache.hc.core5.io,org.apache.hc.core5.util"
+         Unresolved requirement: Import-Package: org.apache.hc.core5.http.impl; version="[5.2.0,6.0.0)"
+           -> Export-Package: org.apache.hc.core5.http.impl; bundle-symbolic-name="org.apache.httpcomponents.core5.httpcore5"; bundle-version="5.2.3.v20230922-1600"; version="5.2.3"; uses:="org.apache.hc.core5.function,org.apache.hc.core5.http,org.apache.hc.core5.http.config,org.apache.hc.core5.http.io,org.apache.hc.core5.http.protocol,org.apache.hc.core5.util"
+         Unresolved requirement: Import-Package: org.apache.hc.core5.ssl; version="[5.2.0,6.0.0)"
+           -> Export-Package: org.apache.hc.core5.ssl; bundle-symbolic-name="org.apache.httpcomponents.core5.httpcore5"; bundle-version="5.2.3.v20230922-1600"; version="5.2.3"; uses:="javax.net.ssl"
+         Unresolved requirement: Import-Package: org.apache.hc.core5.http.ssl; version="[5.2.0,6.0.0)"
+           -> Export-Package: org.apache.hc.core5.http.ssl; bundle-symbolic-name="org.apache.httpcomponents.core5.httpcore5"; bundle-version="5.2.3.v20230922-1600"; version="5.2.3"; uses:="org.apache.hc.core5.http"
+         Unresolved requirement: Import-Package: org.apache.hc.core5.reactor; version="[5.2.0,6.0.0)"
+           -> Export-Package: org.apache.hc.core5.reactor; bundle-symbolic-name="org.apache.httpcomponents.core5.httpcore5"; bundle-version="5.2.3.v20230922-1600"; version="5.2.3"; uses:="org.apache.hc.core5.concurrent,org.apache.hc.core5.function,org.apache.hc.core5.http,org.apache.hc.core5.io,org.apache.hc.core5.net,org.apache.hc.core5.reactor.ssl,org.apache.hc.core5.util"
+         Unresolved requirement: Import-Package: org.apache.hc.core5.http.nio; version="[5.2.0,6.0.0)"
+           -> Export-Package: org.apache.hc.core5.http.nio; bundle-symbolic-name="org.apache.httpcomponents.core5.httpcore5"; bundle-version="5.2.3.v20230922-1600"; version="5.2.3"; uses:="org.apache.hc.core5.concurrent,org.apache.hc.core5.http,org.apache.hc.core5.http.protocol,org.apache.hc.core5.util"
+         Unresolved requirement: Import-Package: org.apache.hc.core5.reactor.ssl; version="[5.2.0,6.0.0)"
+           -> Export-Package: org.apache.hc.core5.reactor.ssl; bundle-symbolic-name="org.apache.httpcomponents.core5.httpcore5"; bundle-version="5.2.3.v20230922-1600"; version="5.2.3"; uses:="javax.net.ssl,org.apache.hc.core5.concurrent,org.apache.hc.core5.function,org.apache.hc.core5.io,org.apache.hc.core5.net,org.apache.hc.core5.reactor,org.apache.hc.core5.util"
+         Unresolved requirement: Import-Package: org.apache.hc.core5.http.io.support; version="[5.2.0,6.0.0)"
+           -> Export-Package: org.apache.hc.core5.http.io.support; bundle-symbolic-name="org.apache.httpcomponents.core5.httpcore5"; bundle-version="5.2.3.v20230922-1600"; version="5.2.3"; uses:="org.apache.hc.core5.http,org.apache.hc.core5.http.io,org.apache.hc.core5.http.protocol,org.apache.hc.core5.http.support,org.apache.hc.core5.net"
+         Unresolved requirement: Import-Package: org.apache.hc.core5.io; version="[5.2.0,6.0.0)"
+           -> Export-Package: org.apache.hc.core5.io; bundle-symbolic-name="org.apache.httpcomponents.core5.httpcore5"; bundle-version="5.2.3.v20230922-1600"; version="5.2.3"; uses:="org.apache.hc.core5.util"
+  Unresolved requirement: Import-Package: org.apache.hc.core5.http.protocol; version="[5.1.0,5.3.0)"
+    -> Export-Package: org.apache.hc.core5.http.protocol; bundle-symbolic-name="org.apache.httpcomponents.core5.httpcore5"; bundle-version="5.2.3.v20230922-1600"; version="5.2.3"; uses:="javax.net.ssl,org.apache.hc.core5.function,org.apache.hc.core5.http"
+  Unresolved requirement: Import-Package: org.apache.hc.client5.http.impl.io; version="[5.1.0,5.3.0)"
+    -> Export-Package: org.apache.hc.client5.http.impl.io; bundle-symbolic-name="org.apache.httpcomponents.client5.httpclient5"; bundle-version="5.2.1.v20230802-0806"; version="5.2.1"; uses:="org.apache.hc.client5.http,org.apache.hc.client5.http.config,org.apache.hc.client5.http.io,org.apache.hc.client5.http.socket,org.apache.hc.core5.function,org.apache.hc.core5.http,org.apache.hc.core5.http.config,org.apache.hc.core5.http.impl.io,org.apache.hc.core5.http.io,org.apache.hc.core5.http.message,org.apache.hc.core5.http.protocol,org.apache.hc.core5.io,org.apache.hc.core5.pool,org.apache.hc.core5.util"
+  Unresolved requirement: Require-Bundle: org.eclipse.userstorage.oauth; bundle-version="[1.0.0,2.0.0)"
+    -> Bundle-SymbolicName: org.eclipse.userstorage.oauth; bundle-version="1.1.0.v20190307-0457"; singleton:="true"
+       org.eclipse.userstorage.oauth [489]
+         Unresolved requirement: Require-Bundle: org.eclipse.userstorage.ui; bundle-version="[1.0.2,2.0.0)"
+           -> Bundle-SymbolicName: org.eclipse.userstorage.ui; bundle-version="1.1.0.v20190307-0457"; singleton:="true"
+              org.eclipse.userstorage.ui [490]
+                Unresolved requirement: Require-Bundle: org.eclipse.userstorage; bundle-version="[1.0.0,2.0.0)"; visibility:="reexport"
+                  -> Bundle-SymbolicName: org.eclipse.userstorage; bundle-version="1.2.0.v20210517-0327"; singleton:="true"
+                     org.eclipse.userstorage [488]
+                       No resolution report for the bundle.                Unresolved requirement: Import-Package: org.eclipse.userstorage.internal
+                  -> Export-Package: org.eclipse.userstorage.internal; bundle-symbolic-name="org.eclipse.userstorage"; bundle-version="1.2.0.v20210517-0327"; version="1.1.0"; x-friends:="org.eclipse.userstorage.tests,  org.eclipse.userstorage.oauth,  org.eclipse.userstorage.ui,  org.eclipse.userstorage.sdk"; uses:="org.apache.http.client.fluent,  org.apache.http"
+  Unresolved requirement: Import-Package: org.apache.hc.core5.http.io; version="[5.1.0,5.3.0)"
+    -> Export-Package: org.apache.hc.core5.http.io; bundle-symbolic-name="org.apache.httpcomponents.core5.httpcore5"; bundle-version="5.2.3.v20230922-1600"; version="5.2.3"; uses:="org.apache.hc.core5.http,org.apache.hc.core5.http.config,org.apache.hc.core5.http.protocol,org.apache.hc.core5.util"
+  Unresolved requirement: Import-Package: org.apache.hc.core5.http.message; version="[5.1.0,5.3.0)"
+    -> Export-Package: org.apache.hc.core5.http.message; bundle-symbolic-name="org.apache.httpcomponents.core5.httpcore5"; bundle-version="5.2.3.v20230922-1600"; version="5.2.3"; uses:="org.apache.hc.core5.http,org.apache.hc.core5.net,org.apache.hc.core5.util"
+  Unresolved requirement: Import-Package: org.apache.hc.client5.http.impl.auth; version="[5.1.0,5.3.0)"
+    -> Export-Package: org.apache.hc.client5.http.impl.auth; bundle-symbolic-name="org.apache.httpcomponents.client5.httpclient5"; bundle-version="5.2.1.v20230802-0806"; version="5.2.1"; uses:="org.apache.hc.client5.http,org.apache.hc.client5.http.auth,org.apache.hc.core5.http,org.apache.hc.core5.http.message,org.apache.hc.core5.http.protocol,org.ietf.jgss"
+  Unresolved requirement: Import-Package: org.apache.hc.client5.http.classic.methods; version="[5.1.0,5.3.0)"
+    -> Export-Package: org.apache.hc.client5.http.classic.methods; bundle-symbolic-name="org.apache.httpcomponents.client5.httpclient5"; bundle-version="5.2.1.v20230802-0806"; version="5.2.1"; uses:="org.apache.hc.client5.http.config,org.apache.hc.core5.concurrent,org.apache.hc.core5.http,org.apache.hc.core5.http.message"
+  Unresolved requirement: Import-Package: org.apache.hc.client5.http.auth; version="[5.1.0,5.3.0)"
+    -> Export-Package: org.apache.hc.client5.http.auth; bundle-symbolic-name="org.apache.httpcomponents.client5.httpclient5"; bundle-version="5.2.1.v20230802-0806"; version="5.2.1"; uses:="org.apache.hc.core5.http,org.apache.hc.core5.http.protocol,org.ietf.jgss"
+  Unresolved requirement: Import-Package: org.apache.hc.client5.http.config; version="[5.1.0,5.3.0)"
+    -> Export-Package: org.apache.hc.client5.http.config; bundle-symbolic-name="org.apache.httpcomponents.client5.httpclient5"; bundle-version="5.2.1.v20230802-0806"; version="5.2.1"; uses:="org.apache.hc.core5.http,org.apache.hc.core5.http.ssl,org.apache.hc.core5.http2,org.apache.hc.core5.util"
+  Unresolved requirement: Import-Package: org.apache.hc.core5.http; version="[5.1.0,5.3.0)"
+    -> Export-Package: org.apache.hc.core5.http; bundle-symbolic-name="org.apache.httpcomponents.core5.httpcore5"; bundle-version="5.2.3.v20230922-1600"; version="5.2.3"; uses:="javax.net.ssl,org.apache.hc.core5.function,org.apache.hc.core5.http.protocol,org.apache.hc.core5.io,org.apache.hc.core5.net,org.apache.hc.core5.util"
+  Unresolved requirement: Import-Package: org.apache.hc.core5.http.io.entity; version="[5.1.0,5.3.0)"
+    -> Export-Package: org.apache.hc.core5.http.io.entity; bundle-symbolic-name="org.apache.httpcomponents.core5.httpcore5"; bundle-version="5.2.3.v20230922-1600"; version="5.2.3"; uses:="org.apache.hc.core5.function,org.apache.hc.core5.http,org.apache.hc.core5.io"
+  Unresolved requirement: Import-Package: org.apache.hc.client5.http.io; version="[5.1.0,5.3.0)"
+    -> Export-Package: org.apache.hc.client5.http.io; bundle-symbolic-name="org.apache.httpcomponents.client5.httpclient5"; bundle-version="5.2.1.v20230802-0806"; version="5.2.1"; uses:="javax.net.ssl,org.apache.hc.client5.http,org.apache.hc.core5.concurrent,org.apache.hc.core5.http,org.apache.hc.core5.http.impl.io,org.apache.hc.core5.http.io,org.apache.hc.core5.http.protocol,org.apache.hc.core5.io,org.apache.hc.core5.util"
+  Unresolved requirement: Require-Bundle: org.eclipse.userstorage; bundle-version="[1.1.0,2.0.0)"
+    -> Bundle-SymbolicName: org.eclipse.userstorage; bundle-version="1.2.0.v20210517-0327"; singleton:="true"
+  Unresolved requirement: Import-Package: org.apache.hc.client5.http.impl; version="[5.1.0,5.3.0)"
+    -> Export-Package: org.apache.hc.client5.http.impl; bundle-symbolic-name="org.apache.httpcomponents.client5.httpclient5"; bundle-version="5.2.1.v20230802-0806"; version="5.2.1"; uses:="org.apache.hc.client5.http,org.apache.hc.client5.http.auth,org.apache.hc.client5.http.cookie,org.apache.hc.client5.http.protocol,org.apache.hc.client5.http.psl,org.apache.hc.core5.concurrent,org.apache.hc.core5.http,org.apache.hc.core5.http.config,org.apache.hc.core5.http.impl,org.apache.hc.core5.http.protocol,org.apache.hc.core5.net,org.apache.hc.core5.pool,org.apache.hc.core5.util,org.slf4j"
+  Unresolved requirement: Import-Package: org.apache.hc.client5.http.entity; version="[5.1.0,5.3.0)"
+    -> Export-Package: org.apache.hc.client5.http.entity; bundle-symbolic-name="org.apache.httpcomponents.client5.httpclient5"; bundle-version="5.2.1.v20230802-0806"; version="5.2.1"; uses:="org.apache.hc.core5.http,org.apache.hc.core5.http.io.entity"
+  Unresolved requirement: Import-Package: org.apache.hc.client5.http.classic; version="[5.1.0,5.3.0)"
+    -> Export-Package: org.apache.hc.client5.http.classic; bundle-symbolic-name="org.apache.httpcomponents.client5.httpclient5"; bundle-version="5.2.1.v20230802-0806"; version="5.2.1"; uses:="org.apache.hc.client5.http,org.apache.hc.client5.http.protocol,org.apache.hc.core5.concurrent,org.apache.hc.core5.http,org.apache.hc.core5.http.io,org.apache.hc.core5.http.protocol,org.apache.hc.core5.util"
+  Unresolved requirement: Import-Package: org.apache.hc.client5.http; version="[5.1.0,5.3.0)"
+    -> Export-Package: org.apache.hc.client5.http; bundle-symbolic-name="org.apache.httpcomponents.client5.httpclient5"; bundle-version="5.2.1.v20230802-0806"; version="5.2.1"; uses:="org.apache.hc.client5.http.auth,org.apache.hc.client5.http.cookie,org.apache.hc.client5.http.protocol,org.apache.hc.core5.http,org.apache.hc.core5.http.config,org.apache.hc.core5.http.protocol,org.apache.hc.core5.net,org.apache.hc.core5.util"
+  Unresolved requirement: Import-Package: org.apache.hc.client5.http.protocol; version="[5.1.0,5.3.0)"
+    -> Export-Package: org.apache.hc.client5.http.protocol; bundle-symbolic-name="org.apache.httpcomponents.client5.httpclient5"; bundle-version="5.2.1.v20230802-0806"; version="5.2.1"; uses:="org.apache.hc.client5.http,org.apache.hc.client5.http.auth,org.apache.hc.client5.http.config,org.apache.hc.client5.http.cookie,org.apache.hc.core5.http,org.apache.hc.core5.http.config,org.apache.hc.core5.http.protocol"
+  Unresolved requirement: Import-Package: org.apache.hc.client5.http.cookie; version="[5.1.0,5.3.0)"
+    -> Export-Package: org.apache.hc.client5.http.cookie; bundle-symbolic-name="org.apache.httpcomponents.client5.httpclient5"; bundle-version="5.2.1.v20230802-0806"; version="5.2.1"; uses:="org.apache.hc.core5.http,org.apache.hc.core5.http.protocol"
+  Unresolved requirement: Import-Package: org.apache.hc.core5.util; version="[5.1.0,5.3.0)"
+    -> Export-Package: org.apache.hc.core5.util; bundle-symbolic-name="org.apache.httpcomponents.core5.httpcore5"; bundle-version="5.2.3.v20230922-1600"; version="5.2.3"; uses:="org.apache.hc.core5.http"
+  Unresolved requirement: Import-Package: org.apache.hc.core5.http.io.support; version="[5.1.0,5.3.0)"
+    -> Export-Package: org.apache.hc.core5.http.io.support; bundle-symbolic-name="org.apache.httpcomponents.core5.httpcore5"; bundle-version="5.2.3.v20230922-1600"; version="5.2.3"; uses:="org.apache.hc.core5.http,org.apache.hc.core5.http.io,org.apache.hc.core5.http.protocol,org.apache.hc.core5.http.support,org.apache.hc.core5.net"
+  Bundle was not resolved because of a uses constraint violation.
+  org.apache.felix.resolver.reason.ReasonException: Uses constraint violation. Unable to resolve resource org.eclipse.epp.mpc.core [osgi.identity; type="osgi.bundle"; version:Version="1.10.3.v20240221-1216"; osgi.identity="org.eclipse.epp.mpc.core"; singleton:="true"] because it is exposed to package 'org.apache.hc.core5.http' from resources org.apache.httpcomponents.core5.httpcore5 [osgi.identity; type="osgi.bundle"; version:Version="5.2.3.v20230922-1600"; osgi.identity="org.apache.httpcomponents.core5.httpcore5"] and org.apache.httpcomponents.core5.httpcore5 [osgi.identity; type="osgi.bundle"; version:Version="5.3.2.v20250110-0800"; osgi.identity="org.apache.httpcomponents.core5.httpcore5"] via two dependency chains.
+
+Chain 1:
+  org.eclipse.epp.mpc.core [osgi.identity; type="osgi.bundle"; version:Version="1.10.3.v20240221-1216"; osgi.identity="org.eclipse.epp.mpc.core"; singleton:="true"]
+    import: (&(osgi.wiring.package=org.apache.hc.core5.http)(&(version>=5.1.0)(!(version>=5.3.0))))
+     |
+    export: osgi.wiring.package: org.apache.hc.core5.http
+  org.apache.httpcomponents.core5.httpcore5 [osgi.identity; type="osgi.bundle"; version:Version="5.2.3.v20230922-1600"; osgi.identity="org.apache.httpcomponents.core5.httpcore5"]
+
+Chain 2:
+  org.eclipse.epp.mpc.core [osgi.identity; type="osgi.bundle"; version:Version="1.10.3.v20240221-1216"; osgi.identity="org.eclipse.epp.mpc.core"; singleton:="true"]
+    import: (&(osgi.wiring.package=org.apache.hc.client5.http)(&(version>=5.1.0)(!(version>=5.3.0))))
+     |
+    export: osgi.wiring.package=org.apache.hc.client5.http; uses:=org.apache.hc.core5.http
+  org.apache.httpcomponents.client5.httpclient5 [osgi.identity; type="osgi.bundle"; version:Version="5.2.1.v20230802-0806"; osgi.identity="org.apache.httpcomponents.client5.httpclient5"]
+    import: (&(osgi.wiring.package=org.apache.hc.core5.http)(&(version>=5.2.0)(!(version>=6.0.0))))
+     |
+    export: osgi.wiring.package: org.apache.hc.core5.http
+  org.apache.httpcomponents.core5.httpcore5 [osgi.identity; type="osgi.bundle"; version:Version="5.3.2.v20250110-0800"; osgi.identity="org.apache.httpcomponents.core5.httpcore5"]
+	at org.eclipse.osgi.container.Module.start(Module.java:493)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel$2.run(ModuleContainer.java:2074)
+	at org.eclipse.osgi.internal.framework.EquinoxContainerAdaptor$1$1.execute(EquinoxContainerAdaptor.java:143)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:2065)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:2005)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1968)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1884)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:341)
+
+!ENTRY org.eclipse.epp.mpc.ui 4 0 2025-06-17 17:26:33.103
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: org.eclipse.epp.mpc.ui [187]
+  Unresolved requirement: Require-Bundle: org.eclipse.userstorage; bundle-version="[1.1.0,2.0.0)"
+    -> Bundle-SymbolicName: org.eclipse.userstorage; bundle-version="1.2.0.v20210517-0327"; singleton:="true"
+       org.eclipse.userstorage [488]
+         No resolution report for the bundle.  Unresolved requirement: Require-Bundle: org.eclipse.equinox.p2.discovery; bundle-version="[1.0.0,2.0.0)"
+    -> Bundle-SymbolicName: org.eclipse.equinox.p2.discovery; bundle-version="1.3.300.v20240321-1450"; singleton:="true"
+       org.eclipse.equinox.p2.discovery [214]
+         No resolution report for the bundle.  Unresolved requirement: Require-Bundle: org.eclipse.equinox.p2.director; bundle-version="2.3.0"
+    -> Bundle-SymbolicName: org.eclipse.equinox.p2.director; bundle-version="2.6.400.v20240321-1450"; singleton:="true"
+       org.eclipse.equinox.p2.director [211]
+         Unresolved requirement: Require-Bundle: org.sat4j.pb; bundle-version="[2.3.5,3.0.0)"
+           -> Bundle-SymbolicName: org.sat4j.pb; bundle-version="2.3.6.v20201214"
+              org.sat4j.pb [555]
+                Unresolved requirement: Require-Bundle: org.sat4j.core
+                  -> Bundle-SymbolicName: org.sat4j.core; bundle-version="2.3.6.v20201214"
+                     org.sat4j.core [554]
+                       No resolution report for the bundle.         Unresolved requirement: Require-Bundle: org.sat4j.core; bundle-version="[2.3.5,3.0.0)"
+           -> Bundle-SymbolicName: org.sat4j.core; bundle-version="2.3.6.v20201214"
+  Unresolved requirement: Require-Bundle: org.eclipse.epp.mpc.core; bundle-version="[1.10.3,2.0.0)"
+    -> Bundle-SymbolicName: org.eclipse.epp.mpc.core; bundle-version="1.10.3.v20240221-1216"; singleton:="true"
+       org.eclipse.epp.mpc.core [185]
+         Unresolved requirement: Import-Package: org.apache.hc.client5.http.impl.classic; version="[5.1.0,5.3.0)"
+           -> Export-Package: org.apache.hc.client5.http.impl.classic; bundle-symbolic-name="org.apache.httpcomponents.client5.httpclient5"; bundle-version="5.2.1.v20230802-0806"; version="5.2.1"; uses:="org.apache.hc.client5.http,org.apache.hc.client5.http.auth,org.apache.hc.client5.http.classic,org.apache.hc.client5.http.config,org.apache.hc.client5.http.cookie,org.apache.hc.client5.http.entity,org.apache.hc.client5.http.impl,org.apache.hc.client5.http.io,org.apache.hc.client5.http.protocol,org.apache.hc.client5.http.routing,org.apache.hc.core5.concurrent,org.apache.hc.core5.http,org.apache.hc.core5.http.config,org.apache.hc.core5.http.impl.io,org.apache.hc.core5.http.io,org.apache.hc.core5.http.protocol,org.apache.hc.core5.io,org.apache.hc.core5.pool,org.apache.hc.core5.util"
+              org.apache.httpcomponents.client5.httpclient5 [82]
+                Unresolved requirement: Import-Package: org.brotli.dec; version="[0.1.0,1.0.0)"; resolution:="optional"
+                Unresolved requirement: Import-Package: org.conscrypt; version="[2.5.0,3.0.0)"; resolution:="optional"
+                Unresolved requirement: Import-Package: org.apache.hc.core5.http.io; version="[5.2.0,6.0.0)"
+                  -> Export-Package: org.apache.hc.core5.http.io; bundle-symbolic-name="org.apache.httpcomponents.core5.httpcore5"; bundle-version="5.2.3.v20230922-1600"; version="5.2.3"; uses:="org.apache.hc.core5.http,org.apache.hc.core5.http.config,org.apache.hc.core5.http.protocol,org.apache.hc.core5.util"
+                     org.apache.httpcomponents.core5.httpcore5 [84]
+                       Unresolved requirement: Import-Package: org.conscrypt; resolution:="optional"
+                Unresolved requirement: Import-Package: org.apache.hc.core5.http.message; version="[5.2.0,6.0.0)"
+                  -> Export-Package: org.apache.hc.core5.http.message; bundle-symbolic-name="org.apache.httpcomponents.core5.httpcore5"; bundle-version="5.2.3.v20230922-1600"; version="5.2.3"; uses:="org.apache.hc.core5.http,org.apache.hc.core5.net,org.apache.hc.core5.util"
+                Unresolved requirement: Import-Package: org.apache.hc.core5.http; version="[5.2.0,6.0.0)"
+                  -> Export-Package: org.apache.hc.core5.http; bundle-symbolic-name="org.apache.httpcomponents.core5.httpcore5"; bundle-version="5.2.3.v20230922-1600"; version="5.2.3"; uses:="javax.net.ssl,org.apache.hc.core5.function,org.apache.hc.core5.http.protocol,org.apache.hc.core5.io,org.apache.hc.core5.net,org.apache.hc.core5.util"
+                Unresolved requirement: Import-Package: org.apache.hc.core5.http.protocol; version="[5.2.0,6.0.0)"
+                  -> Export-Package: org.apache.hc.core5.http.protocol; bundle-symbolic-name="org.apache.httpcomponents.core5.httpcore5"; bundle-version="5.2.3.v20230922-1600"; version="5.2.3"; uses:="javax.net.ssl,org.apache.hc.core5.function,org.apache.hc.core5.http"
+                Unresolved requirement: Import-Package: org.apache.hc.core5.net; version="[5.2.0,6.0.0)"
+                  -> Export-Package: org.apache.hc.core5.net; bundle-symbolic-name="org.apache.httpcomponents.core5.httpcore5"; bundle-version="5.2.3.v20230922-1600"; version="5.2.3"; uses:="org.apache.hc.core5.http"
+                Unresolved requirement: Import-Package: org.apache.hc.core5.http.support; version="[5.2.0,6.0.0)"
+                  -> Export-Package: org.apache.hc.core5.http.support; bundle-symbolic-name="org.apache.httpcomponents.core5.httpcore5"; bundle-version="5.2.3.v20230922-1600"; version="5.2.3"; uses:="org.apache.hc.core5.http,org.apache.hc.core5.http.message,org.apache.hc.core5.net"
+                Unresolved requirement: Import-Package: org.apache.hc.core5.http.config; version="[5.2.0,6.0.0)"
+                  -> Export-Package: org.apache.hc.core5.http.config; bundle-symbolic-name="org.apache.httpcomponents.core5.httpcore5"; bundle-version="5.2.3.v20230922-1600"; version="5.2.3"; uses:="org.apache.hc.core5.util"
+                Unresolved requirement: Import-Package: org.apache.hc.core5.util; version="[5.2.0,6.0.0)"
+                  -> Export-Package: org.apache.hc.core5.util; bundle-symbolic-name="org.apache.httpcomponents.core5.httpcore5"; bundle-version="5.2.3.v20230922-1600"; version="5.2.3"; uses:="org.apache.hc.core5.http"
+                Unresolved requirement: Import-Package: org.apache.hc.core5.http.impl.io; version="[5.2.0,6.0.0)"
+                  -> Export-Package: org.apache.hc.core5.http.impl.io; bundle-symbolic-name="org.apache.httpcomponents.core5.httpcore5"; bundle-version="5.2.3.v20230922-1600"; version="5.2.3"; uses:="javax.net.ssl,org.apache.hc.core5.function,org.apache.hc.core5.http,org.apache.hc.core5.http.config,org.apache.hc.core5.http.impl,org.apache.hc.core5.http.io,org.apache.hc.core5.http.message,org.apache.hc.core5.http.protocol,org.apache.hc.core5.io,org.apache.hc.core5.util"
+                Unresolved requirement: Import-Package: org.apache.hc.core5.http.nio.ssl; version="[5.2.0,6.0.0)"
+                  -> Export-Package: org.apache.hc.core5.http.nio.ssl; bundle-symbolic-name="org.apache.httpcomponents.core5.httpcore5"; bundle-version="5.2.3.v20230922-1600"; version="5.2.3"; uses:="javax.net.ssl,org.apache.hc.core5.concurrent,org.apache.hc.core5.http,org.apache.hc.core5.net,org.apache.hc.core5.reactor,org.apache.hc.core5.reactor.ssl,org.apache.hc.core5.util"
+                Unresolved requirement: Import-Package: org.apache.hc.core5.concurrent; version="[5.2.0,6.0.0)"
+                  -> Export-Package: org.apache.hc.core5.concurrent; bundle-symbolic-name="org.apache.httpcomponents.core5.httpcore5"; bundle-version="5.2.3.v20230922-1600"; version="5.2.3"
+                Unresolved requirement: Import-Package: org.apache.hc.core5.http.io.entity; version="[5.2.0,6.0.0)"
+                  -> Export-Package: org.apache.hc.core5.http.io.entity; bundle-symbolic-name="org.apache.httpcomponents.core5.httpcore5"; bundle-version="5.2.3.v20230922-1600"; version="5.2.3"; uses:="org.apache.hc.core5.function,org.apache.hc.core5.http,org.apache.hc.core5.io"
+                Unresolved requirement: Import-Package: org.apache.hc.core5.http.nio.entity; version="[5.2.0,6.0.0)"
+                  -> Export-Package: org.apache.hc.core5.http.nio.entity; bundle-symbolic-name="org.apache.httpcomponents.core5.httpcore5"; bundle-version="5.2.3.v20230922-1600"; version="5.2.3"; uses:="org.apache.hc.core5.concurrent,org.apache.hc.core5.function,org.apache.hc.core5.http,org.apache.hc.core5.http.config,org.apache.hc.core5.http.nio"
+                Unresolved requirement: Import-Package: org.apache.hc.core5.function; version="[5.2.0,6.0.0)"
+                  -> Export-Package: org.apache.hc.core5.function; bundle-symbolic-name="org.apache.httpcomponents.core5.httpcore5"; bundle-version="5.2.3.v20230922-1600"; version="5.2.3"
+                Unresolved requirement: Import-Package: org.apache.hc.core5.http.nio.command; version="[5.2.0,6.0.0)"
+                  -> Export-Package: org.apache.hc.core5.http.nio.command; bundle-symbolic-name="org.apache.httpcomponents.core5.httpcore5"; bundle-version="5.2.3.v20230922-1600"; version="5.2.3"; uses:="org.apache.hc.core5.concurrent,org.apache.hc.core5.function,org.apache.hc.core5.http.nio,org.apache.hc.core5.http.protocol,org.apache.hc.core5.io,org.apache.hc.core5.reactor"
+                Unresolved requirement: Import-Package: org.apache.hc.core5.http.impl.nio; version="[5.2.0,6.0.0)"
+                  -> Export-Package: org.apache.hc.core5.http.impl.nio; bundle-symbolic-name="org.apache.httpcomponents.core5.httpcore5"; bundle-version="5.2.3.v20230922-1600"; version="5.2.3"; uses:="javax.net.ssl,org.apache.hc.core5.http,org.apache.hc.core5.http.config,org.apache.hc.core5.http.impl,org.apache.hc.core5.http.message,org.apache.hc.core5.http.nio,org.apache.hc.core5.http.nio.ssl,org.apache.hc.core5.http.protocol,org.apache.hc.core5.io,org.apache.hc.core5.reactor,org.apache.hc.core5.util"
+                Unresolved requirement: Import-Package: org.apache.hc.core5.http.nio.support; version="[5.2.0,6.0.0)"
+                  -> Export-Package: org.apache.hc.core5.http.nio.support; bundle-symbolic-name="org.apache.httpcomponents.core5.httpcore5"; bundle-version="5.2.3.v20230922-1600"; version="5.2.3"; uses:="org.apache.hc.core5.concurrent,org.apache.hc.core5.function,org.apache.hc.core5.http,org.apache.hc.core5.http.nio,org.apache.hc.core5.http.protocol,org.apache.hc.core5.http.support,org.apache.hc.core5.net"
+                Unresolved requirement: Import-Package: org.apache.hc.core5.pool; version="[5.2.0,6.0.0)"
+                  -> Export-Package: org.apache.hc.core5.pool; bundle-symbolic-name="org.apache.httpcomponents.core5.httpcore5"; bundle-version="5.2.3.v20230922-1600"; version="5.2.3"; uses:="org.apache.hc.core5.concurrent,org.apache.hc.core5.function,org.apache.hc.core5.http,org.apache.hc.core5.io,org.apache.hc.core5.util"
+                Unresolved requirement: Import-Package: org.apache.hc.core5.http.impl; version="[5.2.0,6.0.0)"
+                  -> Export-Package: org.apache.hc.core5.http.impl; bundle-symbolic-name="org.apache.httpcomponents.core5.httpcore5"; bundle-version="5.2.3.v20230922-1600"; version="5.2.3"; uses:="org.apache.hc.core5.function,org.apache.hc.core5.http,org.apache.hc.core5.http.config,org.apache.hc.core5.http.io,org.apache.hc.core5.http.protocol,org.apache.hc.core5.util"
+                Unresolved requirement: Import-Package: org.apache.hc.core5.ssl; version="[5.2.0,6.0.0)"
+                  -> Export-Package: org.apache.hc.core5.ssl; bundle-symbolic-name="org.apache.httpcomponents.core5.httpcore5"; bundle-version="5.2.3.v20230922-1600"; version="5.2.3"; uses:="javax.net.ssl"
+                Unresolved requirement: Import-Package: org.apache.hc.core5.http.ssl; version="[5.2.0,6.0.0)"
+                  -> Export-Package: org.apache.hc.core5.http.ssl; bundle-symbolic-name="org.apache.httpcomponents.core5.httpcore5"; bundle-version="5.2.3.v20230922-1600"; version="5.2.3"; uses:="org.apache.hc.core5.http"
+                Unresolved requirement: Import-Package: org.apache.hc.core5.reactor; version="[5.2.0,6.0.0)"
+                  -> Export-Package: org.apache.hc.core5.reactor; bundle-symbolic-name="org.apache.httpcomponents.core5.httpcore5"; bundle-version="5.2.3.v20230922-1600"; version="5.2.3"; uses:="org.apache.hc.core5.concurrent,org.apache.hc.core5.function,org.apache.hc.core5.http,org.apache.hc.core5.io,org.apache.hc.core5.net,org.apache.hc.core5.reactor.ssl,org.apache.hc.core5.util"
+                Unresolved requirement: Import-Package: org.apache.hc.core5.http.nio; version="[5.2.0,6.0.0)"
+                  -> Export-Package: org.apache.hc.core5.http.nio; bundle-symbolic-name="org.apache.httpcomponents.core5.httpcore5"; bundle-version="5.2.3.v20230922-1600"; version="5.2.3"; uses:="org.apache.hc.core5.concurrent,org.apache.hc.core5.http,org.apache.hc.core5.http.protocol,org.apache.hc.core5.util"
+                Unresolved requirement: Import-Package: org.apache.hc.core5.reactor.ssl; version="[5.2.0,6.0.0)"
+                  -> Export-Package: org.apache.hc.core5.reactor.ssl; bundle-symbolic-name="org.apache.httpcomponents.core5.httpcore5"; bundle-version="5.2.3.v20230922-1600"; version="5.2.3"; uses:="javax.net.ssl,org.apache.hc.core5.concurrent,org.apache.hc.core5.function,org.apache.hc.core5.io,org.apache.hc.core5.net,org.apache.hc.core5.reactor,org.apache.hc.core5.util"
+                Unresolved requirement: Import-Package: org.apache.hc.core5.http.io.support; version="[5.2.0,6.0.0)"
+                  -> Export-Package: org.apache.hc.core5.http.io.support; bundle-symbolic-name="org.apache.httpcomponents.core5.httpcore5"; bundle-version="5.2.3.v20230922-1600"; version="5.2.3"; uses:="org.apache.hc.core5.http,org.apache.hc.core5.http.io,org.apache.hc.core5.http.protocol,org.apache.hc.core5.http.support,org.apache.hc.core5.net"
+                Unresolved requirement: Import-Package: org.apache.hc.core5.io; version="[5.2.0,6.0.0)"
+                  -> Export-Package: org.apache.hc.core5.io; bundle-symbolic-name="org.apache.httpcomponents.core5.httpcore5"; bundle-version="5.2.3.v20230922-1600"; version="5.2.3"; uses:="org.apache.hc.core5.util"
+         Unresolved requirement: Import-Package: org.apache.hc.core5.http.protocol; version="[5.1.0,5.3.0)"
+           -> Export-Package: org.apache.hc.core5.http.protocol; bundle-symbolic-name="org.apache.httpcomponents.core5.httpcore5"; bundle-version="5.2.3.v20230922-1600"; version="5.2.3"; uses:="javax.net.ssl,org.apache.hc.core5.function,org.apache.hc.core5.http"
+         Unresolved requirement: Import-Package: org.apache.hc.client5.http.impl.io; version="[5.1.0,5.3.0)"
+           -> Export-Package: org.apache.hc.client5.http.impl.io; bundle-symbolic-name="org.apache.httpcomponents.client5.httpclient5"; bundle-version="5.2.1.v20230802-0806"; version="5.2.1"; uses:="org.apache.hc.client5.http,org.apache.hc.client5.http.config,org.apache.hc.client5.http.io,org.apache.hc.client5.http.socket,org.apache.hc.core5.function,org.apache.hc.core5.http,org.apache.hc.core5.http.config,org.apache.hc.core5.http.impl.io,org.apache.hc.core5.http.io,org.apache.hc.core5.http.message,org.apache.hc.core5.http.protocol,org.apache.hc.core5.io,org.apache.hc.core5.pool,org.apache.hc.core5.util"
+         Unresolved requirement: Require-Bundle: org.eclipse.userstorage.oauth; bundle-version="[1.0.0,2.0.0)"
+           -> Bundle-SymbolicName: org.eclipse.userstorage.oauth; bundle-version="1.1.0.v20190307-0457"; singleton:="true"
+              org.eclipse.userstorage.oauth [489]
+                Unresolved requirement: Require-Bundle: org.eclipse.userstorage.ui; bundle-version="[1.0.2,2.0.0)"
+                  -> Bundle-SymbolicName: org.eclipse.userstorage.ui; bundle-version="1.1.0.v20190307-0457"; singleton:="true"
+                     org.eclipse.userstorage.ui [490]
+                       Unresolved requirement: Require-Bundle: org.eclipse.userstorage; bundle-version="[1.0.0,2.0.0)"; visibility:="reexport"
+                         -> Bundle-SymbolicName: org.eclipse.userstorage; bundle-version="1.2.0.v20210517-0327"; singleton:="true"
+                       Unresolved requirement: Import-Package: org.eclipse.userstorage.internal
+                         -> Export-Package: org.eclipse.userstorage.internal; bundle-symbolic-name="org.eclipse.userstorage"; bundle-version="1.2.0.v20210517-0327"; version="1.1.0"; x-friends:="org.eclipse.userstorage.tests,  org.eclipse.userstorage.oauth,  org.eclipse.userstorage.ui,  org.eclipse.userstorage.sdk"; uses:="org.apache.http.client.fluent,  org.apache.http"
+         Unresolved requirement: Import-Package: org.apache.hc.core5.http.io; version="[5.1.0,5.3.0)"
+           -> Export-Package: org.apache.hc.core5.http.io; bundle-symbolic-name="org.apache.httpcomponents.core5.httpcore5"; bundle-version="5.2.3.v20230922-1600"; version="5.2.3"; uses:="org.apache.hc.core5.http,org.apache.hc.core5.http.config,org.apache.hc.core5.http.protocol,org.apache.hc.core5.util"
+         Unresolved requirement: Import-Package: org.apache.hc.core5.http.message; version="[5.1.0,5.3.0)"
+           -> Export-Package: org.apache.hc.core5.http.message; bundle-symbolic-name="org.apache.httpcomponents.core5.httpcore5"; bundle-version="5.2.3.v20230922-1600"; version="5.2.3"; uses:="org.apache.hc.core5.http,org.apache.hc.core5.net,org.apache.hc.core5.util"
+         Unresolved requirement: Import-Package: org.apache.hc.client5.http.impl.auth; version="[5.1.0,5.3.0)"
+           -> Export-Package: org.apache.hc.client5.http.impl.auth; bundle-symbolic-name="org.apache.httpcomponents.client5.httpclient5"; bundle-version="5.2.1.v20230802-0806"; version="5.2.1"; uses:="org.apache.hc.client5.http,org.apache.hc.client5.http.auth,org.apache.hc.core5.http,org.apache.hc.core5.http.message,org.apache.hc.core5.http.protocol,org.ietf.jgss"
+         Unresolved requirement: Import-Package: org.apache.hc.client5.http.classic.methods; version="[5.1.0,5.3.0)"
+           -> Export-Package: org.apache.hc.client5.http.classic.methods; bundle-symbolic-name="org.apache.httpcomponents.client5.httpclient5"; bundle-version="5.2.1.v20230802-0806"; version="5.2.1"; uses:="org.apache.hc.client5.http.config,org.apache.hc.core5.concurrent,org.apache.hc.core5.http,org.apache.hc.core5.http.message"
+         Unresolved requirement: Import-Package: org.apache.hc.client5.http.auth; version="[5.1.0,5.3.0)"
+           -> Export-Package: org.apache.hc.client5.http.auth; bundle-symbolic-name="org.apache.httpcomponents.client5.httpclient5"; bundle-version="5.2.1.v20230802-0806"; version="5.2.1"; uses:="org.apache.hc.core5.http,org.apache.hc.core5.http.protocol,org.ietf.jgss"
+         Unresolved requirement: Import-Package: org.apache.hc.client5.http.config; version="[5.1.0,5.3.0)"
+           -> Export-Package: org.apache.hc.client5.http.config; bundle-symbolic-name="org.apache.httpcomponents.client5.httpclient5"; bundle-version="5.2.1.v20230802-0806"; version="5.2.1"; uses:="org.apache.hc.core5.http,org.apache.hc.core5.http.ssl,org.apache.hc.core5.http2,org.apache.hc.core5.util"
+         Unresolved requirement: Import-Package: org.apache.hc.core5.http; version="[5.1.0,5.3.0)"
+           -> Export-Package: org.apache.hc.core5.http; bundle-symbolic-name="org.apache.httpcomponents.core5.httpcore5"; bundle-version="5.2.3.v20230922-1600"; version="5.2.3"; uses:="javax.net.ssl,org.apache.hc.core5.function,org.apache.hc.core5.http.protocol,org.apache.hc.core5.io,org.apache.hc.core5.net,org.apache.hc.core5.util"
+         Unresolved requirement: Import-Package: org.apache.hc.core5.http.io.entity; version="[5.1.0,5.3.0)"
+           -> Export-Package: org.apache.hc.core5.http.io.entity; bundle-symbolic-name="org.apache.httpcomponents.core5.httpcore5"; bundle-version="5.2.3.v20230922-1600"; version="5.2.3"; uses:="org.apache.hc.core5.function,org.apache.hc.core5.http,org.apache.hc.core5.io"
+         Unresolved requirement: Import-Package: org.apache.hc.client5.http.io; version="[5.1.0,5.3.0)"
+           -> Export-Package: org.apache.hc.client5.http.io; bundle-symbolic-name="org.apache.httpcomponents.client5.httpclient5"; bundle-version="5.2.1.v20230802-0806"; version="5.2.1"; uses:="javax.net.ssl,org.apache.hc.client5.http,org.apache.hc.core5.concurrent,org.apache.hc.core5.http,org.apache.hc.core5.http.impl.io,org.apache.hc.core5.http.io,org.apache.hc.core5.http.protocol,org.apache.hc.core5.io,org.apache.hc.core5.util"
+         Unresolved requirement: Require-Bundle: org.eclipse.userstorage; bundle-version="[1.1.0,2.0.0)"
+           -> Bundle-SymbolicName: org.eclipse.userstorage; bundle-version="1.2.0.v20210517-0327"; singleton:="true"
+         Unresolved requirement: Import-Package: org.apache.hc.client5.http.impl; version="[5.1.0,5.3.0)"
+           -> Export-Package: org.apache.hc.client5.http.impl; bundle-symbolic-name="org.apache.httpcomponents.client5.httpclient5"; bundle-version="5.2.1.v20230802-0806"; version="5.2.1"; uses:="org.apache.hc.client5.http,org.apache.hc.client5.http.auth,org.apache.hc.client5.http.cookie,org.apache.hc.client5.http.protocol,org.apache.hc.client5.http.psl,org.apache.hc.core5.concurrent,org.apache.hc.core5.http,org.apache.hc.core5.http.config,org.apache.hc.core5.http.impl,org.apache.hc.core5.http.protocol,org.apache.hc.core5.net,org.apache.hc.core5.pool,org.apache.hc.core5.util,org.slf4j"
+         Unresolved requirement: Import-Package: org.apache.hc.client5.http.entity; version="[5.1.0,5.3.0)"
+           -> Export-Package: org.apache.hc.client5.http.entity; bundle-symbolic-name="org.apache.httpcomponents.client5.httpclient5"; bundle-version="5.2.1.v20230802-0806"; version="5.2.1"; uses:="org.apache.hc.core5.http,org.apache.hc.core5.http.io.entity"
+         Unresolved requirement: Import-Package: org.apache.hc.client5.http.classic; version="[5.1.0,5.3.0)"
+           -> Export-Package: org.apache.hc.client5.http.classic; bundle-symbolic-name="org.apache.httpcomponents.client5.httpclient5"; bundle-version="5.2.1.v20230802-0806"; version="5.2.1"; uses:="org.apache.hc.client5.http,org.apache.hc.client5.http.protocol,org.apache.hc.core5.concurrent,org.apache.hc.core5.http,org.apache.hc.core5.http.io,org.apache.hc.core5.http.protocol,org.apache.hc.core5.util"
+         Unresolved requirement: Import-Package: org.apache.hc.client5.http; version="[5.1.0,5.3.0)"
+           -> Export-Package: org.apache.hc.client5.http; bundle-symbolic-name="org.apache.httpcomponents.client5.httpclient5"; bundle-version="5.2.1.v20230802-0806"; version="5.2.1"; uses:="org.apache.hc.client5.http.auth,org.apache.hc.client5.http.cookie,org.apache.hc.client5.http.protocol,org.apache.hc.core5.http,org.apache.hc.core5.http.config,org.apache.hc.core5.http.protocol,org.apache.hc.core5.net,org.apache.hc.core5.util"
+         Unresolved requirement: Import-Package: org.apache.hc.client5.http.protocol; version="[5.1.0,5.3.0)"
+           -> Export-Package: org.apache.hc.client5.http.protocol; bundle-symbolic-name="org.apache.httpcomponents.client5.httpclient5"; bundle-version="5.2.1.v20230802-0806"; version="5.2.1"; uses:="org.apache.hc.client5.http,org.apache.hc.client5.http.auth,org.apache.hc.client5.http.config,org.apache.hc.client5.http.cookie,org.apache.hc.core5.http,org.apache.hc.core5.http.config,org.apache.hc.core5.http.protocol"
+         Unresolved requirement: Import-Package: org.apache.hc.client5.http.cookie; version="[5.1.0,5.3.0)"
+           -> Export-Package: org.apache.hc.client5.http.cookie; bundle-symbolic-name="org.apache.httpcomponents.client5.httpclient5"; bundle-version="5.2.1.v20230802-0806"; version="5.2.1"; uses:="org.apache.hc.core5.http,org.apache.hc.core5.http.protocol"
+         Unresolved requirement: Import-Package: org.apache.hc.core5.util; version="[5.1.0,5.3.0)"
+           -> Export-Package: org.apache.hc.core5.util; bundle-symbolic-name="org.apache.httpcomponents.core5.httpcore5"; bundle-version="5.2.3.v20230922-1600"; version="5.2.3"; uses:="org.apache.hc.core5.http"
+         Unresolved requirement: Import-Package: org.apache.hc.core5.http.io.support; version="[5.1.0,5.3.0)"
+           -> Export-Package: org.apache.hc.core5.http.io.support; bundle-symbolic-name="org.apache.httpcomponents.core5.httpcore5"; bundle-version="5.2.3.v20230922-1600"; version="5.2.3"; uses:="org.apache.hc.core5.http,org.apache.hc.core5.http.io,org.apache.hc.core5.http.protocol,org.apache.hc.core5.http.support,org.apache.hc.core5.net"
+  Unresolved requirement: Require-Bundle: org.eclipse.epp.mpc.ui.css; bundle-version="[1.10.3,2.0.0)"
+    -> Bundle-SymbolicName: org.eclipse.epp.mpc.ui.css; bundle-version="1.10.3.v20240221-1216"; singleton:="true"
+       org.eclipse.epp.mpc.ui.css [188]
+         Unresolved requirement: Require-Bundle: org.eclipse.equinox.p2.ui.discovery; bundle-version="[1.1.0,2.0.0)"
+           -> Bundle-SymbolicName: org.eclipse.equinox.p2.ui.discovery; bundle-version="1.3.300.v20240321-1450"; singleton:="true"
+              org.eclipse.equinox.p2.ui.discovery [232]
+                Unresolved requirement: Require-Bundle: org.eclipse.ui.browser
+                  -> Bundle-SymbolicName: org.eclipse.ui.browser; bundle-version="3.8.300.v20240524-2010"; singleton:="true"
+                     org.eclipse.ui.browser [463]
+                       No resolution report for the bundle.                Unresolved requirement: Require-Bundle: org.eclipse.equinox.p2.discovery; bundle-version="[1.0.0,1.4.0)"
+                  -> Bundle-SymbolicName: org.eclipse.equinox.p2.discovery; bundle-version="1.3.300.v20240321-1450"; singleton:="true"
+                Unresolved requirement: Require-Bundle: org.eclipse.equinox.p2.operations; bundle-version="[2.0.0,3.0.0)"
+                  -> Bundle-SymbolicName: org.eclipse.equinox.p2.operations; bundle-version="2.7.400.v20240425-0751"; singleton:="true"
+                     org.eclipse.equinox.p2.operations [222]
+                       Unresolved requirement: Import-Package: org.eclipse.equinox.p2.planner; version="[2.0.0,3.0.0)"
+                         -> Export-Package: org.eclipse.equinox.p2.planner; bundle-symbolic-name="org.eclipse.equinox.p2.director"; bundle-version="2.6.400.v20240321-1450"; version="2.0.0"
+                       Unresolved requirement: Import-Package: org.eclipse.equinox.internal.provisional.p2.director
+                         -> Export-Package: org.eclipse.equinox.internal.provisional.p2.director; bundle-symbolic-name="org.eclipse.equinox.p2.director"; bundle-version="2.6.400.v20240321-1450"; version="0.0.0"; x-friends:="org.eclipse.equinox.p2.console,  org.eclipse.equinox.p2.director.app,  org.eclipse.equinox.p2.operations,  org.eclipse.equinox.p2.ui.admin,  org.eclipse.equinox.p2.installer"
+                       Unresolved requirement: Import-Package: org.eclipse.equinox.internal.p2.director
+                         -> Export-Package: org.eclipse.equinox.internal.p2.director; bundle-symbolic-name="org.eclipse.equinox.p2.director"; bundle-version="2.6.400.v20240321-1450"; version="0.0.0"; x-friends:="org.eclipse.equinox.p2.operations,  org.eclipse.equinox.p2.repository.tools,  org.eclipse.pde.core,  org.eclipse.equinox.p2.reconciler.dropins,  org.eclipse.equinox.p2.ui,  org.eclipse.equinox.p2.director.app"
+                Unresolved requirement: Require-Bundle: org.eclipse.equinox.p2.discovery.compatibility; bundle-version="[1.0.0,1.4.0)"; resolution:="optional"
+                  -> Bundle-SymbolicName: org.eclipse.equinox.p2.discovery.compatibility; bundle-version="1.3.300.v20240417-0757"; singleton:="true"
+                     org.eclipse.equinox.p2.discovery.compatibility [215]
+                       Unresolved requirement: Require-Bundle: org.eclipse.equinox.p2.discovery; bundle-version="1.0.0"
+                         -> Bundle-SymbolicName: org.eclipse.equinox.p2.discovery; bundle-version="1.3.300.v20240321-1450"; singleton:="true"
+                       Unresolved requirement: Require-Bundle: org.eclipse.equinox.p2.transport.ecf; bundle-version="1.0.0"
+                         -> Bundle-SymbolicName: org.eclipse.equinox.p2.transport.ecf; bundle-version="1.4.300.v20240321-1450"
+                            org.eclipse.equinox.p2.transport.ecf [230]
+                              No resolution report for the bundle.                Unresolved requirement: Require-Bundle: org.eclipse.equinox.p2.ui; bundle-version="2.0.0"
+                  -> Bundle-SymbolicName: org.eclipse.equinox.p2.ui; bundle-version="2.8.400.v20240511-1722"; singleton:="true"
+                     org.eclipse.equinox.p2.ui [231]
+                       Unresolved requirement: Require-Bundle: org.eclipse.equinox.security.ui; bundle-version="[1.0.0,2.0.0)"
+                         -> Bundle-SymbolicName: org.eclipse.equinox.security.ui; bundle-version="1.4.300.v20240513-1104"; singleton:="true"
+                            org.eclipse.equinox.security.ui [242]
+                              No resolution report for the bundle.                       Unresolved requirement: Import-Package: org.eclipse.equinox.internal.p2.operations
+                         -> Export-Package: org.eclipse.equinox.internal.p2.operations; bundle-symbolic-name="org.eclipse.equinox.p2.operations"; bundle-version="2.7.400.v20240425-0751"; version="0.0.0"; x-friends:="org.eclipse.pde.ui,org.eclipse.equinox.p2.ui"
+                       Unresolved requirement: Import-Package: org.xml.sax
+                         -> Export-Package: org.xml.sax; bundle-symbolic-name="javax.xml"; bundle-version="1.3.4.v201005080400"; version="2.0.2"
+                            javax.xml [44]
+                              No resolution report for the bundle.                       Unresolved requirement: Import-Package: org.eclipse.equinox.internal.p2.extensionlocation
+                         -> Export-Package: org.eclipse.equinox.internal.p2.extensionlocation; bundle-symbolic-name="org.eclipse.equinox.p2.extensionlocation"; bundle-version="1.5.400.v20240321-1450"; version="0.0.0"; x-friends:="org.eclipse.equinox.p2.reconciler.dropins,org.eclipse.equinox.p2.ui,org.eclipse.equinox.p2.ui.importexport"
+                            org.eclipse.equinox.p2.extensionlocation [217]
+                              Unresolved requirement: Import-Package: org.eclipse.equinox.internal.p2.publisher.eclipse
+                                -> Export-Package: org.eclipse.equinox.internal.p2.publisher.eclipse; bundle-symbolic-name="org.eclipse.equinox.p2.publisher.eclipse"; bundle-version="1.6.100.v20240519-2013"; version="0.0.0"; x-friends:="org.eclipse.equinox.p2.directorywatcher,  org.eclipse.equinox.p2.extensionlocation,  org.eclipse.equinox.p2.repository.tools,  org.eclipse.equinox.p2.updatesite,  org.eclipse.pde.build"
+                                   org.eclipse.equinox.p2.publisher.eclipse [224]
+                                     Unresolved requirement: Import-Package: org.eclipse.equinox.p2.publisher.actions
+                                       -> Export-Package: org.eclipse.equinox.p2.publisher.actions; bundle-symbolic-name="org.eclipse.equinox.p2.publisher"; bundle-version="1.9.200.v20240429-0755"; version="0.0.0"; x-friends:="org.eclipse.equinox.p2.updatesite,  org.eclipse.equinox.p2.directorywatcher,  org.eclipse.equinox.p2.publisher.eclipse,  org.eclipse.equinox.p2.director.app"
+                                          org.eclipse.equinox.p2.publisher [223]
+                                            No resolution report for the bundle.                                     Unresolved requirement: Import-Package: org.eclipse.equinox.p2.publisher
+                                       -> Export-Package: org.eclipse.equinox.p2.publisher; bundle-symbolic-name="org.eclipse.equinox.p2.publisher"; bundle-version="1.9.200.v20240429-0755"; version="0.0.0"; x-friends:="org.eclipse.equinox.p2.directorywatcher,  org.eclipse.equinox.p2.touchpoint.eclipse,  org.eclipse.equinox.p2.updatesite,  org.eclipse.equinox.p2.publisher.eclipse"
+                                     Unresolved requirement: Import-Package: org.eclipse.equinox.internal.p2.publisher
+                                       -> Export-Package: org.eclipse.equinox.internal.p2.publisher; bundle-symbolic-name="org.eclipse.equinox.p2.publisher"; bundle-version="1.9.200.v20240429-0755"; version="0.0.0"; x-friends:="org.eclipse.equinox.p2.directorywatcher,  org.eclipse.equinox.p2.touchpoint.eclipse,  org.eclipse.equinox.p2.ui.sdk,  org.eclipse.equinox.p2.updatesite,  org.eclipse.equinox.p2.publisher.eclipse"
+                                     Unresolved requirement: Import-Package: org.eclipse.equinox.spi.p2.publisher
+                                       -> Export-Package: org.eclipse.equinox.spi.p2.publisher; bundle-symbolic-name="org.eclipse.equinox.p2.publisher"; bundle-version="1.9.200.v20240429-0755"; version="0.0.0"; x-friends:="org.eclipse.equinox.p2.updatesite,org.eclipse.equinox.p2.publisher.eclipse"
+                              Unresolved requirement: Import-Package: org.eclipse.equinox.internal.p2.update
+                                -> Export-Package: org.eclipse.equinox.internal.p2.update; bundle-symbolic-name="org.eclipse.equinox.p2.touchpoint.eclipse"; bundle-version="2.4.300.v20240511-1722"; version="2.0.0"; x-friends:="org.eclipse.equinox.p2.reconciler.dropins,org.eclipse.equinox.p2.extensionlocation,org.eclipse.equinox.p2.directorywatcher"
+                                   org.eclipse.equinox.p2.touchpoint.eclipse [228]
+                                     Unresolved requirement: Import-Package: org.eclipse.equinox.p2.planner; version="[2.0.0,3.0.0)"; resolution:="optional"
+                                       -> Export-Package: org.eclipse.equinox.p2.planner; bundle-symbolic-name="org.eclipse.equinox.p2.director"; bundle-version="2.6.400.v20240321-1450"; version="2.0.0"
+                                     Unresolved requirement: Import-Package: org.xml.sax
+                                       -> Export-Package: org.xml.sax; bundle-symbolic-name="javax.xml"; bundle-version="1.3.4.v201005080400"; version="2.0.2"
+                                     Unresolved requirement: Import-Package: org.eclipse.equinox.internal.p2.garbagecollector
+                                       -> Export-Package: org.eclipse.equinox.internal.p2.garbagecollector; bundle-symbolic-name="org.eclipse.equinox.p2.garbagecollector"; bundle-version="1.3.300.v20240321-1450"; version="0.0.0"; x-friends:="org.eclipse.equinox.p2.touchpoint.eclipse,org.eclipse.pde.core,org.eclipse.equinox.p2.ui.sdk.scheduler"
+                                          org.eclipse.equinox.p2.garbagecollector [218]
+                                            No resolution report for the bundle.                                     Unresolved requirement: Import-Package: org.eclipse.equinox.p2.publisher; resolution:="optional"
+                                       -> Export-Package: org.eclipse.equinox.p2.publisher; bundle-symbolic-name="org.eclipse.equinox.p2.publisher"; bundle-version="1.9.200.v20240429-0755"; version="0.0.0"; x-friends:="org.eclipse.equinox.p2.directorywatcher,  org.eclipse.equinox.p2.touchpoint.eclipse,  org.eclipse.equinox.p2.updatesite,  org.eclipse.equinox.p2.publisher.eclipse"
+                                     Unresolved requirement: Import-Package: org.w3c.dom
+                                       -> Export-Package: org.w3c.dom; bundle-symbolic-name="javax.xml"; bundle-version="1.3.4.v201005080400"; version="3.0.0"
+                                     Unresolved requirement: Import-Package: org.eclipse.equinox.p2.publisher.eclipse; resolution:="optional"
+                                       -> Export-Package: org.eclipse.equinox.p2.publisher.eclipse; bundle-symbolic-name="org.eclipse.equinox.p2.publisher.eclipse"; bundle-version="1.6.100.v20240519-2013"; version="0.0.0"; x-friends:="org.eclipse.equinox.p2.directorywatcher,  org.eclipse.equinox.p2.extensionlocation,  org.eclipse.equinox.p2.touchpoint.eclipse,  org.eclipse.equinox.p2.updatesite,  org.eclipse.equinox.p2.repository.tools"
+                                     Unresolved requirement: Import-Package: javax.xml.parsers
+                                       -> Export-Package: javax.xml.parsers; bundle-symbolic-name="javax.xml"; bundle-version="1.3.4.v201005080400"; version="1.3.0"
+                              Unresolved requirement: Import-Package: org.eclipse.equinox.p2.publisher.eclipse
+                                -> Export-Package: org.eclipse.equinox.p2.publisher.eclipse; bundle-symbolic-name="org.eclipse.equinox.p2.publisher.eclipse"; bundle-version="1.6.100.v20240519-2013"; version="0.0.0"; x-friends:="org.eclipse.equinox.p2.directorywatcher,  org.eclipse.equinox.p2.extensionlocation,  org.eclipse.equinox.p2.touchpoint.eclipse,  org.eclipse.equinox.p2.updatesite,  org.eclipse.equinox.p2.repository.tools"
+                              Unresolved requirement: Import-Package: org.eclipse.equinox.p2.publisher
+                                -> Export-Package: org.eclipse.equinox.p2.publisher; bundle-symbolic-name="org.eclipse.equinox.p2.publisher"; bundle-version="1.9.200.v20240429-0755"; version="0.0.0"; x-friends:="org.eclipse.equinox.p2.directorywatcher,  org.eclipse.equinox.p2.touchpoint.eclipse,  org.eclipse.equinox.p2.updatesite,  org.eclipse.equinox.p2.publisher.eclipse"
+                              Unresolved requirement: Import-Package: org.eclipse.equinox.internal.p2.touchpoint.eclipse
+                                -> Export-Package: org.eclipse.equinox.internal.p2.touchpoint.eclipse; bundle-symbolic-name="org.eclipse.equinox.p2.touchpoint.eclipse"; bundle-version="2.4.300.v20240511-1722"; version="2.0.0"; x-friends:="org.eclipse.equinox.p2.reconciler.dropins,  org.eclipse.equinox.p2.extensionlocation,  org.eclipse.equinox.p2.ui.importexport,  org.eclipse.equinox.p2.ui.sdk.scheduler"
+                              Unresolved requirement: Import-Package: org.eclipse.equinox.internal.provisional.p2.directorywatcher
+                                -> Export-Package: org.eclipse.equinox.internal.provisional.p2.directorywatcher; bundle-symbolic-name="org.eclipse.equinox.p2.directorywatcher"; bundle-version="1.4.400.v20240321-1450"; version="0.0.0"; x-friends:="org.eclipse.equinox.p2.reconciler.dropins,org.eclipse.equinox.p2.extensionlocation"
+                                   org.eclipse.equinox.p2.directorywatcher [213]
+                                     Unresolved requirement: Import-Package: org.eclipse.equinox.internal.p2.update
+                                       -> Export-Package: org.eclipse.equinox.internal.p2.update; bundle-symbolic-name="org.eclipse.equinox.p2.touchpoint.eclipse"; bundle-version="2.4.300.v20240511-1722"; version="2.0.0"; x-friends:="org.eclipse.equinox.p2.reconciler.dropins,org.eclipse.equinox.p2.extensionlocation,org.eclipse.equinox.p2.directorywatcher"
+                                     Unresolved requirement: Import-Package: org.eclipse.equinox.p2.publisher.actions
+                                       -> Export-Package: org.eclipse.equinox.p2.publisher.actions; bundle-symbolic-name="org.eclipse.equinox.p2.publisher"; bundle-version="1.9.200.v20240429-0755"; version="0.0.0"; x-friends:="org.eclipse.equinox.p2.updatesite,  org.eclipse.equinox.p2.directorywatcher,  org.eclipse.equinox.p2.publisher.eclipse,  org.eclipse.equinox.p2.director.app"
+                                     Unresolved requirement: Import-Package: org.eclipse.equinox.p2.publisher
+                                       -> Export-Package: org.eclipse.equinox.p2.publisher; bundle-symbolic-name="org.eclipse.equinox.p2.publisher"; bundle-version="1.9.200.v20240429-0755"; version="0.0.0"; x-friends:="org.eclipse.equinox.p2.directorywatcher,  org.eclipse.equinox.p2.touchpoint.eclipse,  org.eclipse.equinox.p2.updatesite,  org.eclipse.equinox.p2.publisher.eclipse"
+                                     Unresolved requirement: Import-Package: org.eclipse.equinox.p2.publisher.eclipse
+                                       -> Export-Package: org.eclipse.equinox.p2.publisher.eclipse; bundle-symbolic-name="org.eclipse.equinox.p2.publisher.eclipse"; bundle-version="1.6.100.v20240519-2013"; version="0.0.0"; x-friends:="org.eclipse.equinox.p2.directorywatcher,  org.eclipse.equinox.p2.extensionlocation,  org.eclipse.equinox.p2.touchpoint.eclipse,  org.eclipse.equinox.p2.updatesite,  org.eclipse.equinox.p2.repository.tools"
+                       Unresolved requirement: Import-Package: org.eclipse.equinox.p2.operations; version="[2.0.0,3.0.0)"
+                         -> Export-Package: org.eclipse.equinox.p2.operations; bundle-symbolic-name="org.eclipse.equinox.p2.operations"; bundle-version="2.7.400.v20240425-0751"; version="2.0.0"
+                       Unresolved requirement: Import-Package: org.eclipse.equinox.internal.p2.director
+                         -> Export-Package: org.eclipse.equinox.internal.p2.director; bundle-symbolic-name="org.eclipse.equinox.p2.director"; bundle-version="2.6.400.v20240321-1450"; version="0.0.0"; x-friends:="org.eclipse.equinox.p2.operations,  org.eclipse.equinox.p2.repository.tools,  org.eclipse.pde.core,  org.eclipse.equinox.p2.reconciler.dropins,  org.eclipse.equinox.p2.ui,  org.eclipse.equinox.p2.director.app"
+                       Unresolved requirement: Import-Package: org.eclipse.equinox.p2.planner; version="[2.0.0,3.0.0)"
+                         -> Export-Package: org.eclipse.equinox.p2.planner; bundle-symbolic-name="org.eclipse.equinox.p2.director"; bundle-version="2.6.400.v20240321-1450"; version="2.0.0"
+                       Unresolved requirement: Import-Package: javax.xml.parsers
+                         -> Export-Package: javax.xml.parsers; bundle-symbolic-name="javax.xml"; bundle-version="1.3.4.v201005080400"; version="1.3.0"
+                       Unresolved requirement: Import-Package: org.w3c.dom
+                         -> Export-Package: org.w3c.dom; bundle-symbolic-name="javax.xml"; bundle-version="1.3.4.v201005080400"; version="3.0.0"
+                Unresolved requirement: Import-Package: org.eclipse.equinox.p2.planner; version="2.0.0"
+                  -> Export-Package: org.eclipse.equinox.p2.planner; bundle-symbolic-name="org.eclipse.equinox.p2.director"; bundle-version="2.6.400.v20240321-1450"; version="2.0.0"
+  Unresolved requirement: Require-Bundle: org.eclipse.ui.intro.universal; bundle-version="3.3.0"; resolution:="optional"
+    -> Bundle-SymbolicName: org.eclipse.ui.intro.universal; bundle-version="3.5.400.v20240414-1916"; singleton:="true"
+       org.eclipse.ui.intro.universal [475]
+         Unresolved requirement: Require-Bundle: org.eclipse.ui.intro; bundle-version="[3.4.0,4.0.0)"
+           -> Bundle-SymbolicName: org.eclipse.ui.intro; bundle-version="3.7.400.v20240414-0828"; singleton:="true"
+              org.eclipse.ui.intro [473]
+                Unresolved requirement: Import-Package: org.w3c.dom
+                  -> Export-Package: org.w3c.dom; bundle-symbolic-name="javax.xml"; bundle-version="1.3.4.v201005080400"; version="3.0.0"
+                Unresolved requirement: Require-Bundle: org.eclipse.help.base; bundle-version="[4.0.0,5.0.0)"; resolution:="optional"
+                  -> Bundle-SymbolicName: org.eclipse.help.base; bundle-version="4.4.400.v20240601-0610"; singleton:="true"
+                     org.eclipse.help.base [245]
+                       Unresolved requirement: Import-Package: org.eclipse.equinox.http.jetty; resolution:="optional"
+                         -> Export-Package: org.eclipse.equinox.http.jetty; bundle-symbolic-name="org.eclipse.equinox.http.jetty"; bundle-version="3.9.200.v20240321-1445"; version="1.5.0"
+                            org.eclipse.equinox.http.jetty [199]
+                              Unresolved requirement: Import-Package: org.eclipse.jetty.util.thread; version="[12.0.1,13.0.0)"
+                                -> Export-Package: org.eclipse.jetty.util.thread; bundle-symbolic-name="org.eclipse.jetty.util"; bundle-version="12.0.9"; version="12.0.9"; uses:="org.eclipse.jetty.util,org.eclipse.jetty.util.annotation,org.eclipse.jetty.util.component"
+                                   org.eclipse.jetty.util [280]
+                                     Unresolved requirement: Require-Capability: osgi.serviceloader; filter:="(osgi.serviceloader=org.eclipse.jetty.util.security.CredentialProvider)"; resolution:="optional"; cardinality:="multiple"
+                              Unresolved requirement: Import-Package: org.eclipse.jetty.server; version="[12.0.1,13.0.0)"
+                                -> Export-Package: org.eclipse.jetty.server; bundle-symbolic-name="org.eclipse.jetty.server"; bundle-version="12.0.9"; version="12.0.9"; uses:="javax.net.ssl,org.eclipse.jetty.http,org.eclipse.jetty.http.content,org.eclipse.jetty.io,org.eclipse.jetty.io.content,org.eclipse.jetty.io.ssl,org.eclipse.jetty.server.handler,org.eclipse.jetty.util,org.eclipse.jetty.util.annotation,org.eclipse.jetty.util.component,org.eclipse.jetty.util.resource,org.eclipse.jetty.util.ssl,org.eclipse.jetty.util.thread,org.slf4j"
+                                   org.eclipse.jetty.server [277]
+                                     Unresolved requirement: Import-Package: org.eclipse.jetty.jmx; version="[12.0.9,13.0.0)"; resolution:="optional"
+                                     Unresolved requirement: Import-Package: org.eclipse.jetty.io.content; version="[12.0.9,13.0.0)"
+                                       -> Export-Package: org.eclipse.jetty.io.content; bundle-symbolic-name="org.eclipse.jetty.io"; bundle-version="12.0.9"; version="12.0.9"; uses:="org.eclipse.jetty.io,org.eclipse.jetty.util,org.eclipse.jetty.util.thread"
+                                          org.eclipse.jetty.io [275]
+                                            Unresolved requirement: Import-Package: org.eclipse.jetty.jmx; version="[12.0.9,13.0.0)"; resolution:="optional"
+                                            Unresolved requirement: Import-Package: org.eclipse.jetty.util.thread.strategy; version="[12.0.9,13.0.0)"
+                                              -> Export-Package: org.eclipse.jetty.util.thread.strategy; bundle-symbolic-name="org.eclipse.jetty.util"; bundle-version="12.0.9"; version="12.0.9"; uses:="org.eclipse.jetty.util.annotation,org.eclipse.jetty.util.component,org.eclipse.jetty.util.thread"
+                                            Unresolved requirement: Import-Package: org.eclipse.jetty.util.annotation; version="[12.0.9,13.0.0)"
+                                              -> Export-Package: org.eclipse.jetty.util.annotation; bundle-symbolic-name="org.eclipse.jetty.util"; bundle-version="12.0.9"; version="12.0.9"
+                                            Unresolved requirement: Import-Package: org.eclipse.jetty.util.thread; version="[12.0.9,13.0.0)"
+                                              -> Export-Package: org.eclipse.jetty.util.thread; bundle-symbolic-name="org.eclipse.jetty.util"; bundle-version="12.0.9"; version="12.0.9"; uses:="org.eclipse.jetty.util,org.eclipse.jetty.util.annotation,org.eclipse.jetty.util.component"
+                                            Unresolved requirement: Import-Package: org.eclipse.jetty.util.resource; version="[12.0.9,13.0.0)"
+                                              -> Export-Package: org.eclipse.jetty.util.resource; bundle-symbolic-name="org.eclipse.jetty.util"; bundle-version="12.0.9"; version="12.0.9"; uses:="org.eclipse.jetty.util,org.eclipse.jetty.util.annotation,org.eclipse.jetty.util.component,org.slf4j"
+                                            Unresolved requirement: Import-Package: org.eclipse.jetty.util.statistic; version="[12.0.9,13.0.0)"
+                                              -> Export-Package: org.eclipse.jetty.util.statistic; bundle-symbolic-name="org.eclipse.jetty.util"; bundle-version="12.0.9"; version="12.0.9"
+                                            Unresolved requirement: Import-Package: org.eclipse.jetty.util.component; version="[12.0.9,13.0.0)"
+                                              -> Export-Package: org.eclipse.jetty.util.component; bundle-symbolic-name="org.eclipse.jetty.util"; bundle-version="12.0.9"; version="12.0.9"; uses:="org.eclipse.jetty.util,org.eclipse.jetty.util.annotation"
+                                            Unresolved requirement: Import-Package: org.eclipse.jetty.util.ssl; version="[12.0.9,13.0.0)"
+                                              -> Export-Package: org.eclipse.jetty.util.ssl; bundle-symbolic-name="org.eclipse.jetty.util"; bundle-version="12.0.9"; version="12.0.9"; uses:="javax.net.ssl,org.eclipse.jetty.util,org.eclipse.jetty.util.annotation,org.eclipse.jetty.util.component,org.eclipse.jetty.util.resource,org.eclipse.jetty.util.security"
+                                            Unresolved requirement: Import-Package: org.eclipse.jetty.util; version="[12.0.9,13.0.0)"
+                                              -> Export-Package: org.eclipse.jetty.util; bundle-symbolic-name="org.eclipse.jetty.util"; bundle-version="12.0.9"; version="12.0.9"; uses:="org.eclipse.jetty.util.annotation,org.eclipse.jetty.util.component,org.eclipse.jetty.util.resource,org.eclipse.jetty.util.thread,org.slf4j"
+                                     Unresolved requirement: Import-Package: org.eclipse.jetty.util; version="[12.0.9,13.0.0)"
+                                       -> Export-Package: org.eclipse.jetty.util; bundle-symbolic-name="org.eclipse.jetty.util"; bundle-version="12.0.9"; version="12.0.9"; uses:="org.eclipse.jetty.util.annotation,org.eclipse.jetty.util.component,org.eclipse.jetty.util.resource,org.eclipse.jetty.util.thread,org.slf4j"
+                                     Unresolved requirement: Import-Package: org.eclipse.jetty.util.ssl; version="[12.0.9,13.0.0)"
+                                       -> Export-Package: org.eclipse.jetty.util.ssl; bundle-symbolic-name="org.eclipse.jetty.util"; bundle-version="12.0.9"; version="12.0.9"; uses:="javax.net.ssl,org.eclipse.jetty.util,org.eclipse.jetty.util.annotation,org.eclipse.jetty.util.component,org.eclipse.jetty.util.resource,org.eclipse.jetty.util.security"
+                                     Unresolved requirement: Import-Package: org.eclipse.jetty.http.pathmap; version="[12.0.9,13.0.0)"
+                                       -> Export-Package: org.eclipse.jetty.http.pathmap; bundle-symbolic-name="org.eclipse.jetty.http"; bundle-version="12.0.9"; version="12.0.9"; uses:="org.eclipse.jetty.util.annotation,org.eclipse.jetty.util.component"
+                                          org.eclipse.jetty.http [274]
+                                            Unresolved requirement: Import-Package: org.eclipse.jetty.util.annotation; version="[12.0.9,13.0.0)"
+                                              -> Export-Package: org.eclipse.jetty.util.annotation; bundle-symbolic-name="org.eclipse.jetty.util"; bundle-version="12.0.9"; version="12.0.9"
+                                            Unresolved requirement: Import-Package: org.eclipse.jetty.util; version="[12.0.9,13.0.0)"
+                                              -> Export-Package: org.eclipse.jetty.util; bundle-symbolic-name="org.eclipse.jetty.util"; bundle-version="12.0.9"; version="12.0.9"; uses:="org.eclipse.jetty.util.annotation,org.eclipse.jetty.util.component,org.eclipse.jetty.util.resource,org.eclipse.jetty.util.thread,org.slf4j"
+                                            Unresolved requirement: Import-Package: org.eclipse.jetty.util.component; version="[12.0.9,13.0.0)"
+                                              -> Export-Package: org.eclipse.jetty.util.component; bundle-symbolic-name="org.eclipse.jetty.util"; bundle-version="12.0.9"; version="12.0.9"; uses:="org.eclipse.jetty.util,org.eclipse.jetty.util.annotation"
+                                            Unresolved requirement: Import-Package: org.eclipse.jetty.io.content; version="[12.0.9,13.0.0)"
+                                              -> Export-Package: org.eclipse.jetty.io.content; bundle-symbolic-name="org.eclipse.jetty.io"; bundle-version="12.0.9"; version="12.0.9"; uses:="org.eclipse.jetty.io,org.eclipse.jetty.util,org.eclipse.jetty.util.thread"
+                                            Unresolved requirement: Import-Package: org.eclipse.jetty.io; version="[12.0.9,13.0.0)"
+                                              -> Export-Package: org.eclipse.jetty.io; bundle-symbolic-name="org.eclipse.jetty.io"; bundle-version="12.0.9"; version="12.0.9"; uses:="javax.net.ssl,org.eclipse.jetty.util,org.eclipse.jetty.util.annotation,org.eclipse.jetty.util.component,org.eclipse.jetty.util.resource,org.eclipse.jetty.util.ssl,org.eclipse.jetty.util.thread,org.slf4j"
+                                            Unresolved requirement: Import-Package: org.eclipse.jetty.util.thread; version="[12.0.9,13.0.0)"
+                                              -> Export-Package: org.eclipse.jetty.util.thread; bundle-symbolic-name="org.eclipse.jetty.util"; bundle-version="12.0.9"; version="12.0.9"; uses:="org.eclipse.jetty.util,org.eclipse.jetty.util.annotation,org.eclipse.jetty.util.component"
+                                            Unresolved requirement: Import-Package: org.eclipse.jetty.util.resource; version="[12.0.9,13.0.0)"
+                                              -> Export-Package: org.eclipse.jetty.util.resource; bundle-symbolic-name="org.eclipse.jetty.util"; bundle-version="12.0.9"; version="12.0.9"; uses:="org.eclipse.jetty.util,org.eclipse.jetty.util.annotation,org.eclipse.jetty.util.component,org.slf4j"
+                                            Unresolved requirement: Import-Package: org.eclipse.jetty.util.compression; version="[12.0.9,13.0.0)"
+                                              -> Export-Package: org.eclipse.jetty.util.compression; bundle-symbolic-name="org.eclipse.jetty.util"; bundle-version="12.0.9"; version="12.0.9"; uses:="org.eclipse.jetty.util,org.eclipse.jetty.util.annotation,org.eclipse.jetty.util.component"
+                                     Unresolved requirement: Import-Package: org.eclipse.jetty.util.component; version="[12.0.9,13.0.0)"
+                                       -> Export-Package: org.eclipse.jetty.util.component; bundle-symbolic-name="org.eclipse.jetty.util"; bundle-version="12.0.9"; version="12.0.9"; uses:="org.eclipse.jetty.util,org.eclipse.jetty.util.annotation"
+                                     Unresolved requirement: Import-Package: org.eclipse.jetty.http; version="[12.0.9,13.0.0)"
+                                       -> Export-Package: org.eclipse.jetty.http; bundle-symbolic-name="org.eclipse.jetty.http"; bundle-version="12.0.9"; version="12.0.9"; uses:="org.eclipse.jetty.io,org.eclipse.jetty.io.content,org.eclipse.jetty.util,org.eclipse.jetty.util.component,org.eclipse.jetty.util.compression,org.eclipse.jetty.util.resource,org.slf4j"
+                                     Unresolved requirement: Import-Package: org.eclipse.jetty.util.resource; version="[12.0.9,13.0.0)"
+                                       -> Export-Package: org.eclipse.jetty.util.resource; bundle-symbolic-name="org.eclipse.jetty.util"; bundle-version="12.0.9"; version="12.0.9"; uses:="org.eclipse.jetty.util,org.eclipse.jetty.util.annotation,org.eclipse.jetty.util.component,org.slf4j"
+                                     Unresolved requirement: Import-Package: org.eclipse.jetty.io; version="[12.0.9,13.0.0)"
+                                       -> Export-Package: org.eclipse.jetty.io; bundle-symbolic-name="org.eclipse.jetty.io"; bundle-version="12.0.9"; version="12.0.9"; uses:="javax.net.ssl,org.eclipse.jetty.util,org.eclipse.jetty.util.annotation,org.eclipse.jetty.util.component,org.eclipse.jetty.util.resource,org.eclipse.jetty.util.ssl,org.eclipse.jetty.util.thread,org.slf4j"
+                                     Unresolved requirement: Import-Package: org.eclipse.jetty.util.statistic; version="[12.0.9,13.0.0)"
+                                       -> Export-Package: org.eclipse.jetty.util.statistic; bundle-symbolic-name="org.eclipse.jetty.util"; bundle-version="12.0.9"; version="12.0.9"
+                                     Unresolved requirement: Import-Package: org.eclipse.jetty.io.ssl; version="[12.0.9,13.0.0)"
+                                       -> Export-Package: org.eclipse.jetty.io.ssl; bundle-symbolic-name="org.eclipse.jetty.io"; bundle-version="12.0.9"; version="12.0.9"; uses:="javax.net.ssl,org.eclipse.jetty.io,org.eclipse.jetty.util.ssl"
+                                     Unresolved requirement: Import-Package: org.eclipse.jetty.util.thread; version="[12.0.9,13.0.0)"
+                                       -> Export-Package: org.eclipse.jetty.util.thread; bundle-symbolic-name="org.eclipse.jetty.util"; bundle-version="12.0.9"; version="12.0.9"; uses:="org.eclipse.jetty.util,org.eclipse.jetty.util.annotation,org.eclipse.jetty.util.component"
+                                     Unresolved requirement: Import-Package: org.eclipse.jetty.util.thread.strategy; version="[12.0.9,13.0.0)"
+                                       -> Export-Package: org.eclipse.jetty.util.thread.strategy; bundle-symbolic-name="org.eclipse.jetty.util"; bundle-version="12.0.9"; version="12.0.9"; uses:="org.eclipse.jetty.util.annotation,org.eclipse.jetty.util.component,org.eclipse.jetty.util.thread"
+                                     Unresolved requirement: Import-Package: org.eclipse.jetty.http.content; version="[12.0.9,13.0.0)"
+                                       -> Export-Package: org.eclipse.jetty.http.content; bundle-symbolic-name="org.eclipse.jetty.http"; bundle-version="12.0.9"; version="12.0.9"; uses:="org.eclipse.jetty.http,org.eclipse.jetty.io,org.eclipse.jetty.util.annotation,org.eclipse.jetty.util.resource,org.eclipse.jetty.util.thread"
+                                     Unresolved requirement: Import-Package: org.eclipse.jetty.util.annotation; version="[12.0.9,13.0.0)"
+                                       -> Export-Package: org.eclipse.jetty.util.annotation; bundle-symbolic-name="org.eclipse.jetty.util"; bundle-version="12.0.9"; version="12.0.9"
+                                     Unresolved requirement: Import-Package: org.eclipse.jetty.util.compression; version="[12.0.9,13.0.0)"
+                                       -> Export-Package: org.eclipse.jetty.util.compression; bundle-symbolic-name="org.eclipse.jetty.util"; bundle-version="12.0.9"; version="12.0.9"; uses:="org.eclipse.jetty.util,org.eclipse.jetty.util.annotation,org.eclipse.jetty.util.component"
+                              Unresolved requirement: Import-Package: org.eclipse.jetty.util; version="[12.0.1,13.0.0)"
+                                -> Export-Package: org.eclipse.jetty.util; bundle-symbolic-name="org.eclipse.jetty.util"; bundle-version="12.0.9"; version="12.0.9"; uses:="org.eclipse.jetty.util.annotation,org.eclipse.jetty.util.component,org.eclipse.jetty.util.resource,org.eclipse.jetty.util.thread,org.slf4j"
+                              Unresolved requirement: Import-Package: org.eclipse.equinox.http.servlet; version="[1.2.0,2.0.0)"
+                                -> Export-Package: org.eclipse.equinox.http.servlet; bundle-symbolic-name="org.eclipse.equinox.http.servlet"; bundle-version="1.8.200.v20240321-1445"; version="1.2.0"
+                                   org.eclipse.equinox.http.servlet [202]
+                                     Unresolved requirement: Import-Package: org.apache.commons.fileupload; version="[1.2.2,2.0.0)"; resolution:="optional"
+                                     Unresolved requirement: Import-Package: org.apache.commons.fileupload.disk; version="[1.2.2,2.0.0)"; resolution:="optional"
+                                     Unresolved requirement: Import-Package: org.apache.commons.fileupload.servlet; version="[1.2.2,2.0.0)"; resolution:="optional"
+                                     Unresolved requirement: Import-Package: org.osgi.service.http.whiteboard; version="[1.1.0,1.2.0)"
+                                       -> Export-Package: org.osgi.service.http.whiteboard; bundle-symbolic-name="org.osgi.service.http.whiteboard"; bundle-version="1.1.1.202109301733"; version="1.1.1"; uses:="javax.servlet"
+                                          org.osgi.service.http.whiteboard [541]
+                                            Unresolved requirement: Require-Capability: osgi.contract; osgi.contract="JavaServlet"; filter:="(&(osgi.contract=JavaServlet)(version=3.1.0))"
+                                              -> Provide-Capability: osgi.contract; version:List<Version>="2.6.0,3.0.0,3.1.0,4.0.0"; osgi.contract="JavaServlet"; uses:="javax.servlet,javax.servlet.http,javax.servlet.descriptor,javax.servlet.annotation"
+                                                 org.eclipse.equinox.http.service.api [201]
+                                                   No resolution report for the bundle.                                     Unresolved requirement: Import-Package: org.osgi.service.http; version="[1.2.0,1.3.0)"
+                                       -> Export-Package: org.osgi.service.http; bundle-symbolic-name="org.eclipse.equinox.http.service.api"; bundle-version="1.2.2.v20231218-2126"; version="1.2.2"; uses:="javax.servlet,javax.servlet.http"
+                                     Unresolved requirement: Import-Package: org.osgi.service.http.runtime.dto; version="[1.1.0,1.2.0)"
+                                       -> Export-Package: org.osgi.service.http.runtime.dto; bundle-symbolic-name="org.osgi.service.http.whiteboard"; bundle-version="1.1.1.202109301733"; version="1.1.0"; uses:="org.osgi.dto,org.osgi.framework.dto"
+                                     Unresolved requirement: Import-Package: org.osgi.service.http.context; version="[1.1.0,1.2.0)"
+                                       -> Export-Package: org.osgi.service.http.context; bundle-symbolic-name="org.osgi.service.http.whiteboard"; bundle-version="1.1.1.202109301733"; version="1.1.0"; uses:="javax.servlet.http,org.osgi.framework"
+                                     Unresolved requirement: Import-Package: org.osgi.service.http.runtime; version="[1.1.0,1.2.0)"
+                                       -> Export-Package: org.osgi.service.http.runtime; bundle-symbolic-name="org.osgi.service.http.whiteboard"; bundle-version="1.1.1.202109301733"; version="1.1.0"; uses:="org.osgi.service.http.runtime.dto"
+                              Unresolved requirement: Import-Package: org.eclipse.jetty.server.handler; version="[12.0.1,13.0.0)"
+                                -> Export-Package: org.eclipse.jetty.server.handler; bundle-symbolic-name="org.eclipse.jetty.server"; bundle-version="12.0.9"; version="12.0.9"; uses:="org.eclipse.jetty.http,org.eclipse.jetty.http.content,org.eclipse.jetty.http.pathmap,org.eclipse.jetty.io,org.eclipse.jetty.server,org.eclipse.jetty.util,org.eclipse.jetty.util.annotation,org.eclipse.jetty.util.component,org.eclipse.jetty.util.resource,org.eclipse.jetty.util.thread"
+                              Unresolved requirement: Import-Package: org.eclipse.jetty.ee8.nested; version="[12.0.1,13.0.0)"
+                                -> Export-Package: org.eclipse.jetty.ee8.nested; bundle-symbolic-name="org.eclipse.jetty.ee8.server"; bundle-version="12.0.9"; version="12.0.9"; uses:="javax.servlet,javax.servlet.descriptor,javax.servlet.http,org.eclipse.jetty.http,org.eclipse.jetty.http.content,org.eclipse.jetty.http.pathmap,org.eclipse.jetty.io,org.eclipse.jetty.security,org.eclipse.jetty.server,org.eclipse.jetty.server.handler,org.eclipse.jetty.session,org.eclipse.jetty.util,org.eclipse.jetty.util.annotation,org.eclipse.jetty.util.component,org.eclipse.jetty.util.resource,org.eclipse.jetty.util.thread,org.slf4j"
+                                   org.eclipse.jetty.ee8.server [272]
+                                     Unresolved requirement: Import-Package: org.eclipse.jetty.jmx; version="[12.0.9,13.0.0)"; resolution:="optional"
+                                     Unresolved requirement: Import-Package: org.eclipse.jetty.io; version="[12.0.9,13.0.0)"
+                                       -> Export-Package: org.eclipse.jetty.io; bundle-symbolic-name="org.eclipse.jetty.io"; bundle-version="12.0.9"; version="12.0.9"; uses:="javax.net.ssl,org.eclipse.jetty.util,org.eclipse.jetty.util.annotation,org.eclipse.jetty.util.component,org.eclipse.jetty.util.resource,org.eclipse.jetty.util.ssl,org.eclipse.jetty.util.thread,org.slf4j"
+                                     Unresolved requirement: Import-Package: org.eclipse.jetty.util; version="[12.0.9,13.0.0)"
+                                       -> Export-Package: org.eclipse.jetty.util; bundle-symbolic-name="org.eclipse.jetty.util"; bundle-version="12.0.9"; version="12.0.9"; uses:="org.eclipse.jetty.util.annotation,org.eclipse.jetty.util.component,org.eclipse.jetty.util.resource,org.eclipse.jetty.util.thread,org.slf4j"
+                                     Unresolved requirement: Import-Package: org.eclipse.jetty.io.content; version="[12.0.9,13.0.0)"
+                                       -> Export-Package: org.eclipse.jetty.io.content; bundle-symbolic-name="org.eclipse.jetty.io"; bundle-version="12.0.9"; version="12.0.9"; uses:="org.eclipse.jetty.io,org.eclipse.jetty.util,org.eclipse.jetty.util.thread"
+                                     Unresolved requirement: Import-Package: org.eclipse.jetty.http; version="[12.0.9,13.0.0)"
+                                       -> Export-Package: org.eclipse.jetty.http; bundle-symbolic-name="org.eclipse.jetty.http"; bundle-version="12.0.9"; version="12.0.9"; uses:="org.eclipse.jetty.io,org.eclipse.jetty.io.content,org.eclipse.jetty.util,org.eclipse.jetty.util.component,org.eclipse.jetty.util.compression,org.eclipse.jetty.util.resource,org.slf4j"
+                                     Unresolved requirement: Import-Package: org.eclipse.jetty.util.resource; version="[12.0.9,13.0.0)"
+                                       -> Export-Package: org.eclipse.jetty.util.resource; bundle-symbolic-name="org.eclipse.jetty.util"; bundle-version="12.0.9"; version="12.0.9"; uses:="org.eclipse.jetty.util,org.eclipse.jetty.util.annotation,org.eclipse.jetty.util.component,org.slf4j"
+                                     Unresolved requirement: Import-Package: org.eclipse.jetty.security; version="[12.0.9,13.0.0)"
+                                       -> Export-Package: org.eclipse.jetty.security; bundle-symbolic-name="org.eclipse.jetty.security"; bundle-version="12.0.9"; version="12.0.9"; uses:="javax.security.auth,org.eclipse.jetty.http,org.eclipse.jetty.http.pathmap,org.eclipse.jetty.security.authentication,org.eclipse.jetty.server,org.eclipse.jetty.util,org.eclipse.jetty.util.component,org.eclipse.jetty.util.resource,org.eclipse.jetty.util.security"
+                                          org.eclipse.jetty.security [276]
+                                            Unresolved requirement: Import-Package: org.eclipse.jetty.util; version="[12.0.9,13.0.0)"
+                                              -> Export-Package: org.eclipse.jetty.util; bundle-symbolic-name="org.eclipse.jetty.util"; bundle-version="12.0.9"; version="12.0.9"; uses:="org.eclipse.jetty.util.annotation,org.eclipse.jetty.util.component,org.eclipse.jetty.util.resource,org.eclipse.jetty.util.thread,org.slf4j"
+                                            Unresolved requirement: Import-Package: org.eclipse.jetty.io; version="[12.0.9,13.0.0)"
+                                              -> Export-Package: org.eclipse.jetty.io; bundle-symbolic-name="org.eclipse.jetty.io"; bundle-version="12.0.9"; version="12.0.9"; uses:="javax.net.ssl,org.eclipse.jetty.util,org.eclipse.jetty.util.annotation,org.eclipse.jetty.util.component,org.eclipse.jetty.util.resource,org.eclipse.jetty.util.ssl,org.eclipse.jetty.util.thread,org.slf4j"
+                                            Unresolved requirement: Import-Package: org.eclipse.jetty.util.resource; version="[12.0.9,13.0.0)"
+                                              -> Export-Package: org.eclipse.jetty.util.resource; bundle-symbolic-name="org.eclipse.jetty.util"; bundle-version="12.0.9"; version="12.0.9"; uses:="org.eclipse.jetty.util,org.eclipse.jetty.util.annotation,org.eclipse.jetty.util.component,org.slf4j"
+                                            Unresolved requirement: Import-Package: org.eclipse.jetty.server.handler; version="[12.0.9,13.0.0)"
+                                              -> Export-Package: org.eclipse.jetty.server.handler; bundle-symbolic-name="org.eclipse.jetty.server"; bundle-version="12.0.9"; version="12.0.9"; uses:="org.eclipse.jetty.http,org.eclipse.jetty.http.content,org.eclipse.jetty.http.pathmap,org.eclipse.jetty.io,org.eclipse.jetty.server,org.eclipse.jetty.util,org.eclipse.jetty.util.annotation,org.eclipse.jetty.util.component,org.eclipse.jetty.util.resource,org.eclipse.jetty.util.thread"
+                                            Unresolved requirement: Import-Package: org.eclipse.jetty.http.pathmap; version="[12.0.9,13.0.0)"
+                                              -> Export-Package: org.eclipse.jetty.http.pathmap; bundle-symbolic-name="org.eclipse.jetty.http"; bundle-version="12.0.9"; version="12.0.9"; uses:="org.eclipse.jetty.util.annotation,org.eclipse.jetty.util.component"
+                                            Unresolved requirement: Import-Package: org.eclipse.jetty.util.ssl; version="[12.0.9,13.0.0)"
+                                              -> Export-Package: org.eclipse.jetty.util.ssl; bundle-symbolic-name="org.eclipse.jetty.util"; bundle-version="12.0.9"; version="12.0.9"; uses:="javax.net.ssl,org.eclipse.jetty.util,org.eclipse.jetty.util.annotation,org.eclipse.jetty.util.component,org.eclipse.jetty.util.resource,org.eclipse.jetty.util.security"
+                                            Unresolved requirement: Import-Package: org.eclipse.jetty.util.component; version="[12.0.9,13.0.0)"
+                                              -> Export-Package: org.eclipse.jetty.util.component; bundle-symbolic-name="org.eclipse.jetty.util"; bundle-version="12.0.9"; version="12.0.9"; uses:="org.eclipse.jetty.util,org.eclipse.jetty.util.annotation"
+                                            Unresolved requirement: Import-Package: org.eclipse.jetty.http; version="[12.0.9,13.0.0)"
+                                              -> Export-Package: org.eclipse.jetty.http; bundle-symbolic-name="org.eclipse.jetty.http"; bundle-version="12.0.9"; version="12.0.9"; uses:="org.eclipse.jetty.io,org.eclipse.jetty.io.content,org.eclipse.jetty.util,org.eclipse.jetty.util.component,org.eclipse.jetty.util.compression,org.eclipse.jetty.util.resource,org.slf4j"
+                                            Unresolved requirement: Import-Package: org.eclipse.jetty.util.security; version="[12.0.9,13.0.0)"
+                                              -> Export-Package: org.eclipse.jetty.util.security; bundle-symbolic-name="org.eclipse.jetty.util"; bundle-version="12.0.9"; version="12.0.9"; uses:="javax.security.auth,org.eclipse.jetty.util.resource"
+                                            Unresolved requirement: Import-Package: org.eclipse.jetty.server; version="[12.0.9,13.0.0)"
+                                              -> Export-Package: org.eclipse.jetty.server; bundle-symbolic-name="org.eclipse.jetty.server"; bundle-version="12.0.9"; version="12.0.9"; uses:="javax.net.ssl,org.eclipse.jetty.http,org.eclipse.jetty.http.content,org.eclipse.jetty.io,org.eclipse.jetty.io.content,org.eclipse.jetty.io.ssl,org.eclipse.jetty.server.handler,org.eclipse.jetty.util,org.eclipse.jetty.util.annotation,org.eclipse.jetty.util.component,org.eclipse.jetty.util.resource,org.eclipse.jetty.util.ssl,org.eclipse.jetty.util.thread,org.slf4j"
+                                            Unresolved requirement: Import-Package: org.eclipse.jetty.util.thread; version="[12.0.9,13.0.0)"
+                                              -> Export-Package: org.eclipse.jetty.util.thread; bundle-symbolic-name="org.eclipse.jetty.util"; bundle-version="12.0.9"; version="12.0.9"; uses:="org.eclipse.jetty.util,org.eclipse.jetty.util.annotation,org.eclipse.jetty.util.component"
+                                     Unresolved requirement: Import-Package: org.eclipse.jetty.util.thread; version="[12.0.9,13.0.0)"
+                                       -> Export-Package: org.eclipse.jetty.util.thread; bundle-symbolic-name="org.eclipse.jetty.util"; bundle-version="12.0.9"; version="12.0.9"; uses:="org.eclipse.jetty.util,org.eclipse.jetty.util.annotation,org.eclipse.jetty.util.component"
+                                     Unresolved requirement: Import-Package: org.eclipse.jetty.server; version="[12.0.9,13.0.0)"
+                                       -> Export-Package: org.eclipse.jetty.server; bundle-symbolic-name="org.eclipse.jetty.server"; bundle-version="12.0.9"; version="12.0.9"; uses:="javax.net.ssl,org.eclipse.jetty.http,org.eclipse.jetty.http.content,org.eclipse.jetty.io,org.eclipse.jetty.io.content,org.eclipse.jetty.io.ssl,org.eclipse.jetty.server.handler,org.eclipse.jetty.util,org.eclipse.jetty.util.annotation,org.eclipse.jetty.util.component,org.eclipse.jetty.util.resource,org.eclipse.jetty.util.ssl,org.eclipse.jetty.util.thread,org.slf4j"
+                                     Unresolved requirement: Import-Package: org.eclipse.jetty.session; version="[12.0.9,13.0.0)"
+                                       -> Export-Package: org.eclipse.jetty.session; bundle-symbolic-name="org.eclipse.jetty.session"; bundle-version="12.0.9"; version="12.0.9"; uses:="javax.sql,org.eclipse.jetty.http,org.eclipse.jetty.server,org.eclipse.jetty.util,org.eclipse.jetty.util.annotation,org.eclipse.jetty.util.component,org.eclipse.jetty.util.thread"
+                                          org.eclipse.jetty.session [279]
+                                            Unresolved requirement: Import-Package: org.eclipse.jetty.util; version="[12.0.9,13.0.0)"; resolution:="optional"
+                                              -> Export-Package: org.eclipse.jetty.util; bundle-symbolic-name="org.eclipse.jetty.util"; bundle-version="12.0.9"; version="12.0.9"; uses:="org.eclipse.jetty.util.annotation,org.eclipse.jetty.util.component,org.eclipse.jetty.util.resource,org.eclipse.jetty.util.thread,org.slf4j"
+                                            Unresolved requirement: Import-Package: org.eclipse.jetty.io; version="[12.0.9,13.0.0)"
+                                              -> Export-Package: org.eclipse.jetty.io; bundle-symbolic-name="org.eclipse.jetty.io"; bundle-version="12.0.9"; version="12.0.9"; uses:="javax.net.ssl,org.eclipse.jetty.util,org.eclipse.jetty.util.annotation,org.eclipse.jetty.util.component,org.eclipse.jetty.util.resource,org.eclipse.jetty.util.ssl,org.eclipse.jetty.util.thread,org.slf4j"
+                                            Unresolved requirement: Import-Package: org.eclipse.jetty.util.component; version="[12.0.9,13.0.0)"; resolution:="optional"
+                                              -> Export-Package: org.eclipse.jetty.util.component; bundle-symbolic-name="org.eclipse.jetty.util"; bundle-version="12.0.9"; version="12.0.9"; uses:="org.eclipse.jetty.util,org.eclipse.jetty.util.annotation"
+                                            Unresolved requirement: Import-Package: org.eclipse.jetty.http; version="[12.0.9,13.0.0)"
+                                              -> Export-Package: org.eclipse.jetty.http; bundle-symbolic-name="org.eclipse.jetty.http"; bundle-version="12.0.9"; version="12.0.9"; uses:="org.eclipse.jetty.io,org.eclipse.jetty.io.content,org.eclipse.jetty.util,org.eclipse.jetty.util.component,org.eclipse.jetty.util.compression,org.eclipse.jetty.util.resource,org.slf4j"
+                                            Unresolved requirement: Import-Package: org.eclipse.jetty.util.thread; version="[12.0.9,13.0.0)"; resolution:="optional"
+                                              -> Export-Package: org.eclipse.jetty.util.thread; bundle-symbolic-name="org.eclipse.jetty.util"; bundle-version="12.0.9"; version="12.0.9"; uses:="org.eclipse.jetty.util,org.eclipse.jetty.util.annotation,org.eclipse.jetty.util.component"
+                                            Unresolved requirement: Import-Package: org.eclipse.jetty.server; version="[12.0.9,13.0.0)"
+                                              -> Export-Package: org.eclipse.jetty.server; bundle-symbolic-name="org.eclipse.jetty.server"; bundle-version="12.0.9"; version="12.0.9"; uses:="javax.net.ssl,org.eclipse.jetty.http,org.eclipse.jetty.http.content,org.eclipse.jetty.io,org.eclipse.jetty.io.content,org.eclipse.jetty.io.ssl,org.eclipse.jetty.server.handler,org.eclipse.jetty.util,org.eclipse.jetty.util.annotation,org.eclipse.jetty.util.component,org.eclipse.jetty.util.resource,org.eclipse.jetty.util.ssl,org.eclipse.jetty.util.thread,org.slf4j"
+                                            Unresolved requirement: Import-Package: org.eclipse.jetty.util.annotation; version="[12.0.9,13.0.0)"; resolution:="optional"
+                                              -> Export-Package: org.eclipse.jetty.util.annotation; bundle-symbolic-name="org.eclipse.jetty.util"; bundle-version="12.0.9"; version="12.0.9"
+                                            Unresolved requirement: Import-Package: org.eclipse.jetty.server.handler; version="[12.0.9,13.0.0)"
+                                              -> Export-Package: org.eclipse.jetty.server.handler; bundle-symbolic-name="org.eclipse.jetty.server"; bundle-version="12.0.9"; version="12.0.9"; uses:="org.eclipse.jetty.http,org.eclipse.jetty.http.content,org.eclipse.jetty.http.pathmap,org.eclipse.jetty.io,org.eclipse.jetty.server,org.eclipse.jetty.util,org.eclipse.jetty.util.annotation,org.eclipse.jetty.util.component,org.eclipse.jetty.util.resource,org.eclipse.jetty.util.thread"
+                                            Unresolved requirement: Import-Package: org.eclipse.jetty.util.statistic; version="[12.0.9,13.0.0)"; resolution:="optional"
+                                              -> Export-Package: org.eclipse.jetty.util.statistic; bundle-symbolic-name="org.eclipse.jetty.util"; bundle-version="12.0.9"; version="12.0.9"
+                                     Unresolved requirement: Import-Package: org.eclipse.jetty.util.annotation; version="[12.0.9,13.0.0)"
+                                       -> Export-Package: org.eclipse.jetty.util.annotation; bundle-symbolic-name="org.eclipse.jetty.util"; bundle-version="12.0.9"; version="12.0.9"
+                                     Unresolved requirement: Import-Package: org.eclipse.jetty.http.pathmap; version="[12.0.9,13.0.0)"
+                                       -> Export-Package: org.eclipse.jetty.http.pathmap; bundle-symbolic-name="org.eclipse.jetty.http"; bundle-version="12.0.9"; version="12.0.9"; uses:="org.eclipse.jetty.util.annotation,org.eclipse.jetty.util.component"
+                                     Unresolved requirement: Import-Package: org.eclipse.jetty.util.security; version="[12.0.9,13.0.0)"
+                                       -> Export-Package: org.eclipse.jetty.util.security; bundle-symbolic-name="org.eclipse.jetty.util"; bundle-version="12.0.9"; version="12.0.9"; uses:="javax.security.auth,org.eclipse.jetty.util.resource"
+                                     Unresolved requirement: Import-Package: org.eclipse.jetty.server.handler; version="[12.0.9,13.0.0)"
+                                       -> Export-Package: org.eclipse.jetty.server.handler; bundle-symbolic-name="org.eclipse.jetty.server"; bundle-version="12.0.9"; version="12.0.9"; uses:="org.eclipse.jetty.http,org.eclipse.jetty.http.content,org.eclipse.jetty.http.pathmap,org.eclipse.jetty.io,org.eclipse.jetty.server,org.eclipse.jetty.util,org.eclipse.jetty.util.annotation,org.eclipse.jetty.util.component,org.eclipse.jetty.util.resource,org.eclipse.jetty.util.thread"
+                                     Unresolved requirement: Import-Package: org.eclipse.jetty.util.component; version="[12.0.9,13.0.0)"
+                                       -> Export-Package: org.eclipse.jetty.util.component; bundle-symbolic-name="org.eclipse.jetty.util"; bundle-version="12.0.9"; version="12.0.9"; uses:="org.eclipse.jetty.util,org.eclipse.jetty.util.annotation"
+                                     Unresolved requirement: Import-Package: org.eclipse.jetty.http.content; version="[12.0.9,13.0.0)"
+                                       -> Export-Package: org.eclipse.jetty.http.content; bundle-symbolic-name="org.eclipse.jetty.http"; bundle-version="12.0.9"; version="12.0.9"; uses:="org.eclipse.jetty.http,org.eclipse.jetty.io,org.eclipse.jetty.util.annotation,org.eclipse.jetty.util.resource,org.eclipse.jetty.util.thread"
+                              Unresolved requirement: Import-Package: org.eclipse.jetty.ee8.servlet; version="[12.0.1,13.0.0)"
+                                -> Export-Package: org.eclipse.jetty.ee8.servlet; bundle-symbolic-name="org.eclipse.jetty.ee8.servlet"; bundle-version="12.0.9"; version="12.0.9"; uses:="javax.servlet,javax.servlet.descriptor,javax.servlet.http,org.eclipse.jetty.ee8.nested,org.eclipse.jetty.ee8.security,org.eclipse.jetty.http.pathmap,org.eclipse.jetty.security,org.eclipse.jetty.server,org.eclipse.jetty.util,org.eclipse.jetty.util.annotation,org.eclipse.jetty.util.component,org.eclipse.jetty.util.resource"
+                                   org.eclipse.jetty.ee8.servlet [273]
+                                     Unresolved requirement: Import-Package: org.eclipse.jetty.jmx; version="[12.0.9,13.0.0)"; resolution:="optional"
+                                     Unresolved requirement: Import-Package: org.eclipse.jetty.ee8.security; version="[12.0.9,13.0.0)"
+                                       -> Export-Package: org.eclipse.jetty.ee8.security; bundle-symbolic-name="org.eclipse.jetty.ee8.security"; bundle-version="12.0.9"; version="12.0.9"; uses:="javax.servlet,javax.servlet.annotation,javax.servlet.http,org.eclipse.jetty.ee8.nested,org.eclipse.jetty.ee8.security.authentication,org.eclipse.jetty.http.pathmap,org.eclipse.jetty.security,org.eclipse.jetty.server"
+                                          org.eclipse.jetty.ee8.security [271]
+                                            Unresolved requirement: Require-Capability: osgi.serviceloader; filter:="(osgi.serviceloader=org.eclipse.jetty.security.Authenticator$Factory)"; resolution:="optional"; cardinality:="multiple"
+                                            Unresolved requirement: Import-Package: org.eclipse.jetty.util.security; version="[12.0.9,13.0.0)"
+                                              -> Export-Package: org.eclipse.jetty.util.security; bundle-symbolic-name="org.eclipse.jetty.util"; bundle-version="12.0.9"; version="12.0.9"; uses:="javax.security.auth,org.eclipse.jetty.util.resource"
+                                            Unresolved requirement: Import-Package: org.eclipse.jetty.util.thread; version="[12.0.9,13.0.0)"
+                                              -> Export-Package: org.eclipse.jetty.util.thread; bundle-symbolic-name="org.eclipse.jetty.util"; bundle-version="12.0.9"; version="12.0.9"; uses:="org.eclipse.jetty.util,org.eclipse.jetty.util.annotation,org.eclipse.jetty.util.component"
+                                            Unresolved requirement: Import-Package: org.eclipse.jetty.ee8.nested; version="[12.0.9,13.0.0)"
+                                              -> Export-Package: org.eclipse.jetty.ee8.nested; bundle-symbolic-name="org.eclipse.jetty.ee8.server"; bundle-version="12.0.9"; version="12.0.9"; uses:="javax.servlet,javax.servlet.descriptor,javax.servlet.http,org.eclipse.jetty.http,org.eclipse.jetty.http.content,org.eclipse.jetty.http.pathmap,org.eclipse.jetty.io,org.eclipse.jetty.security,org.eclipse.jetty.server,org.eclipse.jetty.server.handler,org.eclipse.jetty.session,org.eclipse.jetty.util,org.eclipse.jetty.util.annotation,org.eclipse.jetty.util.component,org.eclipse.jetty.util.resource,org.eclipse.jetty.util.thread,org.slf4j"
+                                            Unresolved requirement: Import-Package: org.eclipse.jetty.server; version="[12.0.9,13.0.0)"
+                                              -> Export-Package: org.eclipse.jetty.server; bundle-symbolic-name="org.eclipse.jetty.server"; bundle-version="12.0.9"; version="12.0.9"; uses:="javax.net.ssl,org.eclipse.jetty.http,org.eclipse.jetty.http.content,org.eclipse.jetty.io,org.eclipse.jetty.io.content,org.eclipse.jetty.io.ssl,org.eclipse.jetty.server.handler,org.eclipse.jetty.util,org.eclipse.jetty.util.annotation,org.eclipse.jetty.util.component,org.eclipse.jetty.util.resource,org.eclipse.jetty.util.ssl,org.eclipse.jetty.util.thread,org.slf4j"
+                                            Unresolved requirement: Import-Package: org.eclipse.jetty.util.ssl; version="[12.0.9,13.0.0)"
+                                              -> Export-Package: org.eclipse.jetty.util.ssl; bundle-symbolic-name="org.eclipse.jetty.util"; bundle-version="12.0.9"; version="12.0.9"; uses:="javax.net.ssl,org.eclipse.jetty.util,org.eclipse.jetty.util.annotation,org.eclipse.jetty.util.component,org.eclipse.jetty.util.resource,org.eclipse.jetty.util.security"
+                                            Unresolved requirement: Import-Package: org.eclipse.jetty.security; version="[12.0.9,13.0.0)"
+                                              -> Export-Package: org.eclipse.jetty.security; bundle-symbolic-name="org.eclipse.jetty.security"; bundle-version="12.0.9"; version="12.0.9"; uses:="javax.security.auth,org.eclipse.jetty.http,org.eclipse.jetty.http.pathmap,org.eclipse.jetty.security.authentication,org.eclipse.jetty.server,org.eclipse.jetty.util,org.eclipse.jetty.util.component,org.eclipse.jetty.util.resource,org.eclipse.jetty.util.security"
+                                            Unresolved requirement: Import-Package: org.eclipse.jetty.util.component; version="[12.0.9,13.0.0)"
+                                              -> Export-Package: org.eclipse.jetty.util.component; bundle-symbolic-name="org.eclipse.jetty.util"; bundle-version="12.0.9"; version="12.0.9"; uses:="org.eclipse.jetty.util,org.eclipse.jetty.util.annotation"
+                                            Unresolved requirement: Import-Package: org.eclipse.jetty.http.pathmap; version="[12.0.9,13.0.0)"
+                                              -> Export-Package: org.eclipse.jetty.http.pathmap; bundle-symbolic-name="org.eclipse.jetty.http"; bundle-version="12.0.9"; version="12.0.9"; uses:="org.eclipse.jetty.util.annotation,org.eclipse.jetty.util.component"
+                                            Unresolved requirement: Import-Package: org.eclipse.jetty.http; version="[12.0.9,13.0.0)"
+                                              -> Export-Package: org.eclipse.jetty.http; bundle-symbolic-name="org.eclipse.jetty.http"; bundle-version="12.0.9"; version="12.0.9"; uses:="org.eclipse.jetty.io,org.eclipse.jetty.io.content,org.eclipse.jetty.util,org.eclipse.jetty.util.component,org.eclipse.jetty.util.compression,org.eclipse.jetty.util.resource,org.slf4j"
+                                            Unresolved requirement: Import-Package: org.eclipse.jetty.util; version="[12.0.9,13.0.0)"
+                                              -> Export-Package: org.eclipse.jetty.util; bundle-symbolic-name="org.eclipse.jetty.util"; bundle-version="12.0.9"; version="12.0.9"; uses:="org.eclipse.jetty.util.annotation,org.eclipse.jetty.util.component,org.eclipse.jetty.util.resource,org.eclipse.jetty.util.thread,org.slf4j"
+                                     Unresolved requirement: Import-Package: org.eclipse.jetty.server; version="[12.0.9,13.0.0)"
+                                       -> Export-Package: org.eclipse.jetty.server; bundle-symbolic-name="org.eclipse.jetty.server"; bundle-version="12.0.9"; version="12.0.9"; uses:="javax.net.ssl,org.eclipse.jetty.http,org.eclipse.jetty.http.content,org.eclipse.jetty.io,org.eclipse.jetty.io.content,org.eclipse.jetty.io.ssl,org.eclipse.jetty.server.handler,org.eclipse.jetty.util,org.eclipse.jetty.util.annotation,org.eclipse.jetty.util.component,org.eclipse.jetty.util.resource,org.eclipse.jetty.util.ssl,org.eclipse.jetty.util.thread,org.slf4j"
+                                     Unresolved requirement: Import-Package: org.eclipse.jetty.ee8.nested; version="[12.0.9,13.0.0)"
+                                       -> Export-Package: org.eclipse.jetty.ee8.nested; bundle-symbolic-name="org.eclipse.jetty.ee8.server"; bundle-version="12.0.9"; version="12.0.9"; uses:="javax.servlet,javax.servlet.descriptor,javax.servlet.http,org.eclipse.jetty.http,org.eclipse.jetty.http.content,org.eclipse.jetty.http.pathmap,org.eclipse.jetty.io,org.eclipse.jetty.security,org.eclipse.jetty.server,org.eclipse.jetty.server.handler,org.eclipse.jetty.session,org.eclipse.jetty.util,org.eclipse.jetty.util.annotation,org.eclipse.jetty.util.component,org.eclipse.jetty.util.resource,org.eclipse.jetty.util.thread,org.slf4j"
+                                     Unresolved requirement: Import-Package: org.eclipse.jetty.http.content; version="[12.0.9,13.0.0)"
+                                       -> Export-Package: org.eclipse.jetty.http.content; bundle-symbolic-name="org.eclipse.jetty.http"; bundle-version="12.0.9"; version="12.0.9"; uses:="org.eclipse.jetty.http,org.eclipse.jetty.io,org.eclipse.jetty.util.annotation,org.eclipse.jetty.util.resource,org.eclipse.jetty.util.thread"
+                                     Unresolved requirement: Import-Package: org.eclipse.jetty.util; version="[12.0.9,13.0.0)"; resolution:="optional"
+                                       -> Export-Package: org.eclipse.jetty.util; bundle-symbolic-name="org.eclipse.jetty.util"; bundle-version="12.0.9"; version="12.0.9"; uses:="org.eclipse.jetty.util.annotation,org.eclipse.jetty.util.component,org.eclipse.jetty.util.resource,org.eclipse.jetty.util.thread,org.slf4j"
+                                     Unresolved requirement: Import-Package: org.eclipse.jetty.util.annotation; version="[12.0.9,13.0.0)"; resolution:="optional"
+                                       -> Export-Package: org.eclipse.jetty.util.annotation; bundle-symbolic-name="org.eclipse.jetty.util"; bundle-version="12.0.9"; version="12.0.9"
+                                     Unresolved requirement: Import-Package: org.eclipse.jetty.io; version="[12.0.9,13.0.0)"
+                                       -> Export-Package: org.eclipse.jetty.io; bundle-symbolic-name="org.eclipse.jetty.io"; bundle-version="12.0.9"; version="12.0.9"; uses:="javax.net.ssl,org.eclipse.jetty.util,org.eclipse.jetty.util.annotation,org.eclipse.jetty.util.component,org.eclipse.jetty.util.resource,org.eclipse.jetty.util.ssl,org.eclipse.jetty.util.thread,org.slf4j"
+                                     Unresolved requirement: Import-Package: org.eclipse.jetty.util.thread; version="[12.0.9,13.0.0)"; resolution:="optional"
+                                       -> Export-Package: org.eclipse.jetty.util.thread; bundle-symbolic-name="org.eclipse.jetty.util"; bundle-version="12.0.9"; version="12.0.9"; uses:="org.eclipse.jetty.util,org.eclipse.jetty.util.annotation,org.eclipse.jetty.util.component"
+                                     Unresolved requirement: Import-Package: org.eclipse.jetty.util.resource; version="[12.0.9,13.0.0)"; resolution:="optional"
+                                       -> Export-Package: org.eclipse.jetty.util.resource; bundle-symbolic-name="org.eclipse.jetty.util"; bundle-version="12.0.9"; version="12.0.9"; uses:="org.eclipse.jetty.util,org.eclipse.jetty.util.annotation,org.eclipse.jetty.util.component,org.slf4j"
+                                     Unresolved requirement: Import-Package: org.eclipse.jetty.http; version="[12.0.9,13.0.0)"
+                                       -> Export-Package: org.eclipse.jetty.http; bundle-symbolic-name="org.eclipse.jetty.http"; bundle-version="12.0.9"; version="12.0.9"; uses:="org.eclipse.jetty.io,org.eclipse.jetty.io.content,org.eclipse.jetty.util,org.eclipse.jetty.util.component,org.eclipse.jetty.util.compression,org.eclipse.jetty.util.resource,org.slf4j"
+                                     Unresolved requirement: Import-Package: org.eclipse.jetty.util.component; version="[12.0.9,13.0.0)"; resolution:="optional"
+                                       -> Export-Package: org.eclipse.jetty.util.component; bundle-symbolic-name="org.eclipse.jetty.util"; bundle-version="12.0.9"; version="12.0.9"; uses:="org.eclipse.jetty.util,org.eclipse.jetty.util.annotation"
+                                     Unresolved requirement: Import-Package: org.eclipse.jetty.security; version="[12.0.9,13.0.0)"
+                                       -> Export-Package: org.eclipse.jetty.security; bundle-symbolic-name="org.eclipse.jetty.security"; bundle-version="12.0.9"; version="12.0.9"; uses:="javax.security.auth,org.eclipse.jetty.http,org.eclipse.jetty.http.pathmap,org.eclipse.jetty.security.authentication,org.eclipse.jetty.server,org.eclipse.jetty.util,org.eclipse.jetty.util.component,org.eclipse.jetty.util.resource,org.eclipse.jetty.util.security"
+                                     Unresolved requirement: Import-Package: org.eclipse.jetty.http.pathmap; version="[12.0.9,13.0.0)"
+                                       -> Export-Package: org.eclipse.jetty.http.pathmap; bundle-symbolic-name="org.eclipse.jetty.http"; bundle-version="12.0.9"; version="12.0.9"; uses:="org.eclipse.jetty.util.annotation,org.eclipse.jetty.util.component"
+                              Unresolved requirement: Import-Package: org.eclipse.jetty.http; version="[12.0.1,13.0.0)"
+                                -> Export-Package: org.eclipse.jetty.http; bundle-symbolic-name="org.eclipse.jetty.http"; bundle-version="12.0.9"; version="12.0.9"; uses:="org.eclipse.jetty.io,org.eclipse.jetty.io.content,org.eclipse.jetty.util,org.eclipse.jetty.util.component,org.eclipse.jetty.util.compression,org.eclipse.jetty.util.resource,org.slf4j"
+                              Unresolved requirement: Import-Package: org.eclipse.jetty.session; version="[12.0.1,13.0.0)"
+                                -> Export-Package: org.eclipse.jetty.session; bundle-symbolic-name="org.eclipse.jetty.session"; bundle-version="12.0.9"; version="12.0.9"; uses:="javax.sql,org.eclipse.jetty.http,org.eclipse.jetty.server,org.eclipse.jetty.util,org.eclipse.jetty.util.annotation,org.eclipse.jetty.util.component,org.eclipse.jetty.util.thread"
+                              Unresolved requirement: Import-Package: org.eclipse.jetty.util.component; version="[12.0.1,13.0.0)"
+                                -> Export-Package: org.eclipse.jetty.util.component; bundle-symbolic-name="org.eclipse.jetty.util"; bundle-version="12.0.9"; version="12.0.9"; uses:="org.eclipse.jetty.util,org.eclipse.jetty.util.annotation"
+                              Unresolved requirement: Import-Package: org.eclipse.jetty.util.ssl; version="[12.0.1,13.0.0)"
+                                -> Export-Package: org.eclipse.jetty.util.ssl; bundle-symbolic-name="org.eclipse.jetty.util"; bundle-version="12.0.9"; version="12.0.9"; uses:="javax.net.ssl,org.eclipse.jetty.util,org.eclipse.jetty.util.annotation,org.eclipse.jetty.util.component,org.eclipse.jetty.util.resource,org.eclipse.jetty.util.security"
+                       Unresolved requirement: Require-Bundle: org.apache.lucene.core; bundle-version="[9.4.2,10.0.0)"
+                         -> Bundle-SymbolicName: org.apache.lucene.core; bundle-version="9.10.0.v20240221-0830"
+                            org.apache.lucene.core [90]
+                              No resolution report for the bundle.                       Unresolved requirement: Require-Bundle: org.apache.lucene.analysis-smartcn; bundle-version="[9.4.2,10.0.0)"
+                         -> Bundle-SymbolicName: org.apache.lucene.analysis-smartcn; bundle-version="9.10.0.v20240221-0830"
+                            org.apache.lucene.analysis-smartcn [89]
+                              Unresolved requirement: Import-Package: org.apache.lucene.analysis.util; version="[9.10.0,10.0.0)"
+                                -> Export-Package: org.apache.lucene.analysis.util; bundle-symbolic-name="org.apache.lucene.analysis-common"; bundle-version="9.10.0.v20240221-0830"; version="9.10.0"; uses:="org.apache.lucene.analysis,org.apache.lucene.util"
+                                   org.apache.lucene.analysis-common [88]
+                                     Unresolved requirement: Import-Package: org.apache.lucene.document; version="[9.10.0,10.0.0)"
+                                       -> Export-Package: org.apache.lucene.document; bundle-symbolic-name="org.apache.lucene.core"; bundle-version="9.10.0.v20240221-0830"; version="9.10.0"; uses:="org.apache.lucene.analysis,org.apache.lucene.geo,org.apache.lucene.index,org.apache.lucene.search,org.apache.lucene.util"
+                                     Unresolved requirement: Import-Package: javax.xml.parsers
+                                       -> Export-Package: javax.xml.parsers; bundle-symbolic-name="javax.xml"; bundle-version="1.3.4.v201005080400"; version="1.3.0"
+                                     Unresolved requirement: Import-Package: org.apache.lucene.search; version="[9.10.0,10.0.0)"
+                                       -> Export-Package: org.apache.lucene.search; bundle-symbolic-name="org.apache.lucene.core"; bundle-version="9.10.0.v20240221-0830"; version="9.10.0"; uses:="org.apache.lucene.document,org.apache.lucene.index,org.apache.lucene.search.knn,org.apache.lucene.search.similarities,org.apache.lucene.store,org.apache.lucene.util,org.apache.lucene.util.automaton,org.apache.lucene.util.hnsw"
+                                     Unresolved requirement: Import-Package: org.apache.lucene.util.hnsw; version="[9.10.0,10.0.0)"
+                                       -> Export-Package: org.apache.lucene.util.hnsw; bundle-symbolic-name="org.apache.lucene.core"; bundle-version="9.10.0.v20240221-0830"; version="9.10.0"; uses:="org.apache.lucene.codecs,org.apache.lucene.index,org.apache.lucene.search,org.apache.lucene.util"
+                                     Unresolved requirement: Import-Package: org.apache.lucene.util; version="[9.10.0,10.0.0)"
+                                       -> Export-Package: org.apache.lucene.util; bundle-symbolic-name="org.apache.lucene.core"; bundle-version="9.10.0.v20240221-0830"; version="9.10.0"; uses:="org.apache.lucene.analysis,org.apache.lucene.index,org.apache.lucene.search,org.apache.lucene.store"
+                                     Unresolved requirement: Import-Package: org.apache.lucene.codecs; version="[9.10.0,10.0.0)"
+                                       -> Export-Package: org.apache.lucene.codecs; bundle-symbolic-name="org.apache.lucene.core"; bundle-version="9.10.0.v20240221-0830"; version="9.10.0"; uses:="org.apache.lucene.index,org.apache.lucene.search,org.apache.lucene.store,org.apache.lucene.util,org.apache.lucene.util.hnsw"
+                                     Unresolved requirement: Import-Package: org.xml.sax.helpers
+                                       -> Export-Package: org.xml.sax.helpers; bundle-symbolic-name="javax.xml"; bundle-version="1.3.4.v201005080400"; version="2.0.2"
+                                     Unresolved requirement: Import-Package: org.apache.lucene.index; version="[9.10.0,10.0.0)"
+                                       -> Export-Package: org.apache.lucene.index; bundle-symbolic-name="org.apache.lucene.core"; bundle-version="9.10.0.v20240221-0830"; version="9.10.0"; uses:="org.apache.lucene.analysis,org.apache.lucene.codecs,org.apache.lucene.document,org.apache.lucene.search,org.apache.lucene.search.similarities,org.apache.lucene.store,org.apache.lucene.util,org.apache.lucene.util.automaton"
+                                     Unresolved requirement: Import-Package: org.apache.lucene.util.fst; version="[9.10.0,10.0.0)"
+                                       -> Export-Package: org.apache.lucene.util.fst; bundle-symbolic-name="org.apache.lucene.core"; bundle-version="9.10.0.v20240221-0830"; version="9.10.0"; uses:="org.apache.lucene.store,org.apache.lucene.util"
+                                     Unresolved requirement: Import-Package: org.apache.lucene.analysis.standard; version="[9.10.0,10.0.0)"
+                                       -> Export-Package: org.apache.lucene.analysis.standard; bundle-symbolic-name="org.apache.lucene.core"; bundle-version="9.10.0.v20240221-0830"; version="9.10.0"; uses:="org.apache.lucene.analysis,org.apache.lucene.analysis.tokenattributes,org.apache.lucene.util"
+                                     Unresolved requirement: Import-Package: org.apache.lucene.store; version="[9.10.0,10.0.0)"
+                                       -> Export-Package: org.apache.lucene.store; bundle-symbolic-name="org.apache.lucene.core"; bundle-version="9.10.0.v20240221-0830"; version="9.10.0"; uses:="org.apache.lucene.util"
+                                     Unresolved requirement: Import-Package: org.apache.lucene.analysis.tokenattributes; version="[9.10.0,10.0.0)"
+                                       -> Export-Package: org.apache.lucene.analysis.tokenattributes; bundle-symbolic-name="org.apache.lucene.core"; bundle-version="9.10.0.v20240221-0830"; version="9.10.0"; uses:="org.apache.lucene.util"
+                                     Unresolved requirement: Import-Package: org.xml.sax
+                                       -> Export-Package: org.xml.sax; bundle-symbolic-name="javax.xml"; bundle-version="1.3.4.v201005080400"; version="2.0.2"
+                                     Unresolved requirement: Import-Package: org.apache.lucene.util.automaton; version="[9.10.0,10.0.0)"
+                                       -> Export-Package: org.apache.lucene.util.automaton; bundle-symbolic-name="org.apache.lucene.core"; bundle-version="9.10.0.v20240221-0830"; version="9.10.0"; uses:="org.apache.lucene.index,org.apache.lucene.search,org.apache.lucene.util"
+                                     Unresolved requirement: Import-Package: org.apache.lucene.analysis; version="[9.10.0,10.0.0)"
+                                       -> Export-Package: org.apache.lucene.analysis; bundle-symbolic-name="org.apache.lucene.core"; bundle-version="9.10.0.v20240221-0830"; version="9.10.0"; uses:="org.apache.lucene.util,org.apache.lucene.util.automaton"
+                              Unresolved requirement: Import-Package: org.apache.lucene.util; version="[9.10.0,10.0.0)"
+                                -> Export-Package: org.apache.lucene.util; bundle-symbolic-name="org.apache.lucene.core"; bundle-version="9.10.0.v20240221-0830"; version="9.10.0"; uses:="org.apache.lucene.analysis,org.apache.lucene.index,org.apache.lucene.search,org.apache.lucene.store"
+                              Unresolved requirement: Import-Package: org.apache.lucene.analysis.en; version="[9.10.0,10.0.0)"
+                                -> Export-Package: org.apache.lucene.analysis.en; bundle-symbolic-name="org.apache.lucene.analysis-common"; bundle-version="9.10.0.v20240221-0830"; version="9.10.0"; uses:="org.apache.lucene.analysis,org.apache.lucene.util"
+                              Unresolved requirement: Import-Package: org.apache.lucene.analysis; version="[9.10.0,10.0.0)"
+                                -> Export-Package: org.apache.lucene.analysis; bundle-symbolic-name="org.apache.lucene.core"; bundle-version="9.10.0.v20240221-0830"; version="9.10.0"; uses:="org.apache.lucene.util,org.apache.lucene.util.automaton"
+                              Unresolved requirement: Import-Package: org.apache.lucene.analysis.tokenattributes; version="[9.10.0,10.0.0)"
+                                -> Export-Package: org.apache.lucene.analysis.tokenattributes; bundle-symbolic-name="org.apache.lucene.core"; bundle-version="9.10.0.v20240221-0830"; version="9.10.0"; uses:="org.apache.lucene.util"
+                       Unresolved requirement: Require-Bundle: org.apache.lucene.analysis-common; bundle-version="[9.4.2,10.0.0)"
+                         -> Bundle-SymbolicName: org.apache.lucene.analysis-common; bundle-version="9.10.0.v20240221-0830"
+                Unresolved requirement: Import-Package: javax.xml.parsers
+                  -> Export-Package: javax.xml.parsers; bundle-symbolic-name="javax.xml"; bundle-version="1.3.4.v201005080400"; version="1.3.0"
+                Unresolved requirement: Import-Package: javax.xml.transform.stream
+                  -> Export-Package: javax.xml.transform.stream; bundle-symbolic-name="javax.xml"; bundle-version="1.3.4.v201005080400"; version="1.3.0"
+                Unresolved requirement: Import-Package: org.xml.sax
+                  -> Export-Package: org.xml.sax; bundle-symbolic-name="javax.xml"; bundle-version="1.3.4.v201005080400"; version="2.0.2"
+                Unresolved requirement: Import-Package: javax.xml.transform.dom
+                  -> Export-Package: javax.xml.transform.dom; bundle-symbolic-name="javax.xml"; bundle-version="1.3.4.v201005080400"; version="1.3.0"
+                Unresolved requirement: Import-Package: javax.xml.transform
+                  -> Export-Package: javax.xml.transform; bundle-symbolic-name="javax.xml"; bundle-version="1.3.4.v201005080400"; version="1.3.0"
+  Unresolved requirement: Require-Bundle: org.eclipse.equinox.p2.operations; bundle-version="2.3.0"
+    -> Bundle-SymbolicName: org.eclipse.equinox.p2.operations; bundle-version="2.7.400.v20240425-0751"; singleton:="true"
+  Unresolved requirement: Require-Bundle: org.eclipse.equinox.p2.ui.discovery; bundle-version="[1.0.0,2.0.0)"
+    -> Bundle-SymbolicName: org.eclipse.equinox.p2.ui.discovery; bundle-version="1.3.300.v20240321-1450"; singleton:="true"
+  Unresolved requirement: Require-Bundle: org.eclipse.ui.intro; bundle-version="3.5.0"; resolution:="optional"
+    -> Bundle-SymbolicName: org.eclipse.ui.intro; bundle-version="3.7.400.v20240414-0828"; singleton:="true"
+  Unresolved requirement: Require-Bundle: org.eclipse.userstorage.oauth; bundle-version="[1.0.0,2.0.0)"
+    -> Bundle-SymbolicName: org.eclipse.userstorage.oauth; bundle-version="1.1.0.v20190307-0457"; singleton:="true"
+  Unresolved requirement: Require-Bundle: org.eclipse.userstorage.ui; bundle-version="[1.0.0,2.0.0)"
+    -> Bundle-SymbolicName: org.eclipse.userstorage.ui; bundle-version="1.1.0.v20190307-0457"; singleton:="true"
+  Unresolved requirement: Require-Bundle: org.eclipse.equinox.p2.ui; bundle-version="2.6.0"
+    -> Bundle-SymbolicName: org.eclipse.equinox.p2.ui; bundle-version="2.8.400.v20240511-1722"; singleton:="true"
+  Bundle was not resolved because of a uses constraint violation.
+  org.apache.felix.resolver.reason.ReasonException: Uses constraint violation. Unable to resolve resource org.eclipse.epp.mpc.core [osgi.identity; type="osgi.bundle"; version:Version="1.10.3.v20240221-1216"; osgi.identity="org.eclipse.epp.mpc.core"; singleton:="true"] because it is exposed to package 'org.apache.hc.core5.http' from resources org.apache.httpcomponents.core5.httpcore5 [osgi.identity; type="osgi.bundle"; version:Version="5.2.3.v20230922-1600"; osgi.identity="org.apache.httpcomponents.core5.httpcore5"] and org.apache.httpcomponents.core5.httpcore5 [osgi.identity; type="osgi.bundle"; version:Version="5.3.2.v20250110-0800"; osgi.identity="org.apache.httpcomponents.core5.httpcore5"] via two dependency chains.
+
+Chain 1:
+  org.eclipse.epp.mpc.core [osgi.identity; type="osgi.bundle"; version:Version="1.10.3.v20240221-1216"; osgi.identity="org.eclipse.epp.mpc.core"; singleton:="true"]
+    import: (&(osgi.wiring.package=org.apache.hc.core5.http)(&(version>=5.1.0)(!(version>=5.3.0))))
+     |
+    export: osgi.wiring.package: org.apache.hc.core5.http
+  org.apache.httpcomponents.core5.httpcore5 [osgi.identity; type="osgi.bundle"; version:Version="5.2.3.v20230922-1600"; osgi.identity="org.apache.httpcomponents.core5.httpcore5"]
+
+Chain 2:
+  org.eclipse.epp.mpc.core [osgi.identity; type="osgi.bundle"; version:Version="1.10.3.v20240221-1216"; osgi.identity="org.eclipse.epp.mpc.core"; singleton:="true"]
+    import: (&(osgi.wiring.package=org.apache.hc.client5.http)(&(version>=5.1.0)(!(version>=5.3.0))))
+     |
+    export: osgi.wiring.package=org.apache.hc.client5.http; uses:=org.apache.hc.core5.http
+  org.apache.httpcomponents.client5.httpclient5 [osgi.identity; type="osgi.bundle"; version:Version="5.2.1.v20230802-0806"; osgi.identity="org.apache.httpcomponents.client5.httpclient5"]
+    import: (&(osgi.wiring.package=org.apache.hc.core5.http)(&(version>=5.2.0)(!(version>=6.0.0))))
+     |
+    export: osgi.wiring.package: org.apache.hc.core5.http
+  org.apache.httpcomponents.core5.httpcore5 [osgi.identity; type="osgi.bundle"; version:Version="5.3.2.v20250110-0800"; osgi.identity="org.apache.httpcomponents.core5.httpcore5"]
+	at org.eclipse.osgi.container.Module.start(Module.java:493)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel$2.run(ModuleContainer.java:2074)
+	at org.eclipse.osgi.internal.framework.EquinoxContainerAdaptor$1$1.execute(EquinoxContainerAdaptor.java:143)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:2065)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:2005)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1968)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1884)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:341)
+
+!ENTRY org.eclipse.equinox.app 0 0 2025-06-17 17:26:33.914
+!MESSAGE Product org.eclipse.epp.package.java.product could not be found.
+
+!ENTRY ch.qos.logback.classic 1 0 2025-06-17 17:26:53.294
+!MESSAGE Logback config file: /Users/kaganalikorkmaz/my-app/Backend/.metadata/.plugins/org.eclipse.m2e.logback/logback.2.6.1.20240411-1122.xml
+
+!ENTRY org.eclipse.ui 2 0 2025-06-17 17:26:53.446
+!MESSAGE Warnings while parsing the commands from the 'org.eclipse.ui.commands' and 'org.eclipse.ui.actionDefinitions' extension points.
+!SUBENTRY 1 org.eclipse.ui 2 0 2025-06-17 17:26:53.446
+!MESSAGE Commands should really have a category: plug-in='org.springframework.tooling.boot.ls', id='spring.initializr.addStarters', categoryId='org.eclipse.lsp4e.commandCategory'
+
+!ENTRY org.eclipse.ui 2 0 2025-06-17 17:26:53.557
+!MESSAGE Warnings while parsing the commands from the 'org.eclipse.ui.commands' and 'org.eclipse.ui.actionDefinitions' extension points.
+!SUBENTRY 1 org.eclipse.ui 2 0 2025-06-17 17:26:53.557
+!MESSAGE Commands should really have a category: plug-in='org.springframework.tooling.boot.ls', id='spring.initializr.addStarters', categoryId='org.eclipse.lsp4e.commandCategory'
