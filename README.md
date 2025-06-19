@@ -31,6 +31,16 @@
 
 <h2>Kurulum ve Çalıştırma</h2>
 
+<h2>Kurulum ve Çalıştırma</h2>
+<pre><code>
+# Ortam Ayarları
+cp backend/src/main/resources/application.properties.example backend/src/main/resources/application.properties
+# → application.properties içindeki spring.datasource.url, username ve password değerlerini kendi ortamınıza göre düzenleyin
+
+cp frontend/.env.example frontend/.env
+# → frontend/.env içindeki VITE_API_URL ve VITE_WS_URL değerlerini backend’inizin adresine göre ayarlayın
+
+
 <h3>Backend</h3>
 <pre><code>cd backend
 ./mvnw clean install
