@@ -30,8 +30,6 @@
 </ul>
 
 <h2>Kurulum ve Çalıştırma</h2>
-
-<h2>Kurulum ve Çalıştırma</h2>
 <pre><code>
 # Ortam Ayarları
 cp backend/src/main/resources/application.properties.example backend/src/main/resources/application.properties
@@ -55,8 +53,8 @@ npm run dev
 
 <h2>Kullanım</h2>
 <ul>
-  <li><code>http://localhost:8082/admin</code> - Admin paneli</li>
-  <li><code>http://localhost:5173</code> - Kullanıcı sayfası (Vite geliştirme sunucusu)</li>
+  <li><code>http://localhost:8082/admin</code> – Admin paneli</li>
+  <li><code>http://localhost:5173</code> – Kullanıcı arayüzü (Vite sunucusu)</li>
 </ul>
 
 <h2>Yönetici Hesabı</h2>
