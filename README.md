@@ -30,7 +30,6 @@
 </ul>
 
 <h2>Kurulum ve Çalıştırma</h2>
-<pre><code>
 # Ortam Ayarları
 cp backend/src/main/resources/application.properties.example backend/src/main/resources/application.properties
 # → application.properties içindeki spring.datasource.url, username ve password değerlerini kendi ortamınıza göre düzenleyin
