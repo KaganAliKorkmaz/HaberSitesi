@@ -49,6 +49,13 @@ npm run dev
   <li><code>http://localhost:5173</code> - Kullanıcı sayfası (Vite geliştirme sunucusu)</li>
 </ul>
 
+<h2>Yönetici Hesabı</h2>
+<p>Admin panelini kullanabilmek için önce kayıt olup ardından giriş yapmanız gerekmektedir:</p>
+<ul>
+  <li><strong>Kullanıcı adı:</strong> <code>admin123</code></li>
+  <li><strong>Şifre:</strong> <code>123456</code></li>
+</ul>
+
 <h2>Bilinen Eksiklikler ve Yapılacaklar</h2>
 <ul>
   <li><strong>Şifreleme yöntemleri</strong> henüz eklenmedi, kullanıcı doğrulama ve veri şifreleme işlemleri uygulanmalı.</li>
