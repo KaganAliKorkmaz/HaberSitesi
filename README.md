@@ -71,7 +71,6 @@ npm run dev
 <h2>Bilinen Eksiklikler ve Yapılacaklar</h2>
 <ul>
   <li><strong>Şifreleme yöntemleri</strong> henüz eklenmedi, kullanıcı doğrulama ve veri şifreleme işlemleri uygulanmalı.</li>
-  <li>Mevcut <strong>güvenlik açıkları</strong> (örneğin CSRF, XSS korumaları) iyileştirilmeli.</li>
   <li><strong>WebSocket</strong> tasarımı yalnızca duyurulara uygulanmış durumda; tüm gerçek zamanlı işlemler (Haber ekleme, silme vb.) için genişletilebilir.</li>
   <li>Kullanıcı arayüzü daha <strong>kullanışlı</strong> ve <strong>erişilebilir</strong> olacak şekilde iyileştirilmeli.</li>
 </ul>
