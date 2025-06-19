@@ -31,7 +31,7 @@
 
 <h2>Kurulum ve Çalıştırma</h2>
 
-# Ortam Ayarları
+#Ortam Ayarları
 
 
 cp backend/src/main/resources/application.properties.example backend/src/main/resources/application.properties
