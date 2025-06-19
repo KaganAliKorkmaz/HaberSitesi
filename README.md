@@ -35,7 +35,8 @@ cp backend/src/main/resources/application.properties.example backend/src/main/re
 # → application.properties içindeki spring.datasource.url, username ve password değerlerini kendi ortamınıza göre düzenleyin
 
 cp frontend/.env.example frontend/.env
-# → frontend/.env içindeki VITE_API_URL ve VITE_WS_URL değerlerini backend’inizin adresine göre ayarlayın
+\# → frontend/.env içindeki VITE_API_URL ve VITE_WS_URL değerlerini backend’inizin adresine göre ayarlayın
+
 
 
 <h3>Backend</h3>
