@@ -22,7 +22,6 @@ const AdminAnnouncementsPage = () => {
     imagePath: '' 
   });
 
-  // Simple popup system
   const showPopup = (message, type = 'success') => {
     setPopup({ show: true, message, type });
   };
@@ -121,7 +120,6 @@ const AdminAnnouncementsPage = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-green-50 to-white py-8 px-4">
-      {/* Popup Component */}
       {popup.show && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
           <div className={`max-w-md w-full mx-4 p-6 rounded-lg shadow-xl ${

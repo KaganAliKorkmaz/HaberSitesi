@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-const UserPage = () => {
+const NewsContent = () => {
   const [news, setNews] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
   const [sortOrder, setSortOrder] = useState('');
@@ -87,9 +87,7 @@ const UserPage = () => {
     }
   };
 
-  // Modal açma ve detay çekme
   const handleNewsClick = async (id) => {
-    console.log('clicked news id:', id);
     setModalOpen(true);
     setDetailLoading(true);
     try {
@@ -107,7 +105,6 @@ const UserPage = () => {
     setSelectedNews(null);
   };
 
-  // Metni 94 karaktere kısaltma fonksiyonu
   const truncateText = (text, maxLength = 94) => {
     if (text.length <= maxLength) return text;
     return text.substring(0, maxLength) + '...';
@@ -163,7 +160,6 @@ const UserPage = () => {
         <p className="text-blue-600 text-center">Haber bulunamadı.</p>
       )}
 
-      {/* Modal */}
       {modalOpen && (
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-60 backdrop-blur-sm z-50">
           <div className="bg-white p-8 rounded-2xl shadow-2xl max-w-lg w-full relative border-4 border-blue-400 flex flex-col items-center animate-fade-in">
@@ -195,4 +191,4 @@ const UserPage = () => {
   );
 };
 
-export default UserPage; 
+export default NewsContent; 

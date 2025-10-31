@@ -1,7 +1,7 @@
-# Compiled class file
+# Compiled class files
 *.class
 
-# Log file
+# Log files
 *.log
 
 # BlueJ files
@@ -20,14 +20,26 @@
 *.rar
 
 
-# Frontend
+# Java / Maven
+backend/target/
+backend/node_modules/
+backend/.classpath
+backend/.project
+backend/.settings/
+
+# Node / Vite
 /frontend/node_modules/
 /frontend/dist/
+/frontend/.vite/
+/frontend/.env*
 
-# IDE’ler
+# IDE ve editör dosyaları
 .vscode/
 .idea/
 *.iml
+
+# MacOS
+.DS_Store
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*

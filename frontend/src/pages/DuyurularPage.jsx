@@ -73,7 +73,6 @@ const DuyurularPage = () => {
         }
     };
 
-    // Metni 74 karaktere kısaltma fonksiyonu
     const truncateText = (text, maxLength = 74) => {
         if (!text) return '';
         if (text.length <= maxLength) return text;
@@ -81,15 +80,8 @@ const DuyurularPage = () => {
     };
 
     useEffect(() => {
-        // Başlangıçta listeyi çek
-        axios.get('http://localhost:8082/User/duyurular')
-            .then(res => {
-                setDuyurular(res.data);
-                setLoading(false);
-            })
-            .catch(() => setLoading(false));
+        fetchDuyurular();
 
-        // STOMP client oluştur
         const client = new Client({
             webSocketFactory: () => new SockJS('http://localhost:8082/ws'),
             reconnectDelay: 5000,
